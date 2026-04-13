@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Raul Cirigliano | Galería de Obras</title>
+    <meta name="description" content="Explora el proceso creativo de Raul Cirigliano en escultura y cerámica. 
+    Especialista en técnicas de modelado, horneados y modelado de piezas únicas en arcilla.">
+    
+    <meta property="og:title" content="Raul Cirigliano | Escultura y Cerámica Artística">
+    <meta property="og:description" content="Arte en barro, procesos de cerámicas y galería de esculturas originales.">
+    <meta property="og:image" content="imagenes/mujer_tomandose_el_pelo.jpg">
+    <meta property="og:url" content="https://raulcirigliano.com.ar/index.html">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="estilos.css"> 
+    <link rel="icon" type="image/x-icon" href="imagenes/favicon.ico">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Person",
+      "name": "Ro",
+      "jobTitle": "Escultor y Ceramista",
+      "description": "Artista dedicado a la escultura en cerámica con enfoque en técnicas tradicionales y experimentales.",
+      "url": "https://tuweb.com"
+    }
+    </script>
+</head>
+
+<body> 
+
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">Arte<span>Barro</span></a>
+            
+            <button class="mobile-menu-btn" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="ventas.html">Tienda</a></li>
+                <li><a href="personal.html">Personal</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </div>
+    </header>
+
+   <!-- Main Content -->
+    <main>
+          <!-- Gallery Section -->
+    <section class="gallery" id="galeria">
+        <div class="container">
+            <div class="section-title">
+                <h2>Galería de Obras</h2>
+            </div>
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">Todas</button>
+                <button class="filter-btn" data-filter="escultura">Esculturas</button>
+                <button class="filter-btn" data-filter="ceramica">Cerámica</button>
+                <button class="filter-btn" data-filter="disponible">Disponibles</button>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item" data-category="escultura" data-available="true">
+                    <img src="imagenes/mujer.jpg" alt="Mujer">
+                    <div class="sold-out-badge" style="display: none;">VENDIDO</div>
+                    <div class="item-info">
+                        <h3>Mujer con trenzas</h3>
+                        <p>En proceso</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="ceramica" data-available="true">
+                    <img src="imagenes/hombre.jpg" alt="Hombre">
+                    <div class="sold-out-badge" style="display: none;">VENDIDO</div>
+                    <div class="item-info">
+                        <h3>Hombre en extasis</h3>
+                        <p>En proceso</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="exposiciones" data-available="false">
+                    <img src="imagenes/mano_hombre.jpg" alt="Brazo de hombre">
+                    <div class="sold-out-badge">VENDIDO</div>
+                    <div class="item-info">
+                        <h3>Brazo de hombre</h3>
+                        <p>En proceso</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="escultura" data-available="true">
+                    <img src="imagenes/mujer_t_p.jpg" alt="Mujer tomandose el pelo">
+                    <div class="sold-out-badge" style="display: none;">VENDIDO</div>
+                    <div class="item-info">
+                        <h3>Figura Humana</h3>
+                        <p>En proceso</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="ceramica" data-available="false">
+                    <img src="imagenes/mano1.jpg" alt="Brazo de hombre">
+                    <div class="sold-out-badge">VENDIDO</div>
+                    <div class="item-info">
+                        <h3>Mano</h3>
+                        <p>En proceso</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="exposiciones" data-available="true">
+                    <img src="imagenes/mujer_t_p_e.jpg" alt="Mujer tomandose el pelo">
+                    <div class="sold-out-badge" style="display: none;">VENDIDO</div>
+                    <div class="item-info">
+                        <h3>Mujer tomandose el pelo</h3>
+                        <p>En proceso</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="ceramica" data-available="true">
+                    <img src="imagenes/ceramico1.jpg" alt="Cerámica 1">
+                    <div class="sold-out-badge" style="display: none;">VENDIDO</div>
+                    <div class="item-info">
+                        <h3>Cerámica 1</h3>
+                        <p>En proceso</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="ceramica" data-available="true">
+                    <img src="imagenes/ceramico2.jpg" alt="Cerámica 2">
+                    <div class="sold-out-badge" style="display: none;">VENDIDO</div>
+                    <div class="item-info">
+                        <h3>Cerámica 2</h3>
+                        <p>En proceso</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="escultura" data-available="true">
+                    <img src="imagenes/el_duende.jpg" alt="El Duende">
+                    <div class="sold-out-badge" style="display: none;">VENDIDO</div>
+                    <div class="item-info">
+                        <h3>El Duende</h3>
+                        <p>En proceso</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="escultura" data-available="true">
+                    <img src="imagenes/el_espanol.jpg" alt="El Español">
+                    <div class="sold-out-badge" style="display: none;">VENDIDO</div>
+                    <div class="item-info">
+                        <h3>El Español</h3>
+                        <p>En proceso</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="escultura" data-available="true">
+                    <img src="imagenes/el_grito_e.jpg" alt="El grito E">
+                    <div class="sold-out-badge" style="display: none;">VENDIDO</div>
+                    <div class="item-info">
+                        <h3>El Grito E</h3>
+                        <p>En proceso</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="escultura" data-available="true">
+                    <img src="imagenes/el_grito_f.jpg" alt="El grito F">
+                    <div class="sold-out-badge" style="display: none;">VENDIDO</div>
+                    <div class="item-info">
+                        <h3>El Grito F</h3>
+                        <p>En proceso</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="escultura" data-available="true">
+                    <img src="imagenes/mujer_flor.jpg" alt="Mujer con flor">
+                    <div class="sold-out-badge" style="display: none;">VENDIDO</div>
+                    <div class="item-info">
+                        <h3>Mujer con flor</h3>
+                        <p>En proceso</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="escultura" data-available="true">
+                    <img src="imagenes/tres.jpg" alt="Tres">
+                    <div class="sold-out-badge" style="display: none;">VENDIDO</div>
+                    <div class="item-info">
+                        <h3>Tres</h3>
+                        <p>En proceso</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-video">
+                <h3>Video de la obra</h3>
+                <video controls width="100%" poster="imagenes/mano1.jpg">
+                    <source src="imagenes/mano4.mp4" type="video/mp4">
+                    Tu navegador no soporta la reproducción de video.
+                </video>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+      <!-- Footer -->
+    <footer>
+
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ArteBarro</h3>
+                    <p>Creando arte con barro y pasión. Piezas únicas que transforman espacios y se conectan con emociones.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <p><a href="#inicio">Inicio</a></p>
+                    <p><a href="#galeria">Galería</a></p>
+                    <p><a href="#tienda">Tienda</a></p>
+                    <p><a href="#sobre-mi">Sobre Mí</a></p>
+                    <p><a href="#contacto">Contacto</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <p><i class="fas fa-envelope"></i> raulcirigliano@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> 054 11 2660 8813</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Taller Central</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ArteBarro. Todos los derechos reservados.</p>
+            </div>
+        </div>
+
+    </footer>
+
+    <div class="image-modal" id="image-modal">
+        <div class="image-modal-content">
+            <span class="image-modal-close" id="image-modal-close">&times;</span>
+            <button class="image-modal-prev" id="image-modal-prev" aria-label="Imagen anterior">‹</button>
+            <img id="image-modal-img" src="" alt="Imagen ampliada">
+            <button class="image-modal-next" id="image-modal-next" aria-label="Siguiente imagen">›</button>
+        </div>
+    </div>
+
+     <script src="script.js"></script>
+</body>
+</html>
