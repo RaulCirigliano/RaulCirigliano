@@ -1,0 +1,58 @@
+git add .
+
+git commit -m "subo nueva escultura"
+
+git push origin main
+
+
+3. Verificación de seguridad (HTTPS)
+[Sin verificar]: No puedo ver tu panel de control de Netlify, pero normalmente, al ser un sitio nuevo, Netlify ya debería haber activado el candadito verde (SSL).
+
+Entra a tu web y fíjate si la dirección empieza con https://. Si es así, tus visitantes estarán seguros.
+
+Un toque personal para el sitio
+[Inferencia]: Basado en tu pasión por la enseñanza y el arte, asegúrate de que en la página de contacto.html (que vi en tu lista de archivos subidos) tu mail o WhatsApp estén bien claros. ¡Es la puerta de entrada para nuevos alumnos o coleccionistas!
+
+¿Hay algo específico de la apariencia o de cómo se ven las fotos de las esculturas que quieras retocar ahora que la ves "en vivo"? Tal vez el tamaño de las imágenes o algún detalle del menú.
+
+
+Es una estrategia impecable. En el desarrollo web, el equilibrio entre calidad visual y velocidad de carga es un arte en sí mismo, especialmente para un escultor donde el detalle de la textura del barro es fundamental.
+
+Aquí tienes unos consejos técnicos para esa etapa definitiva:
+
+1. Optimización de Imágenes (Calidad vs. Peso)
+Para que tus esculturas se vean nítidas pero la página no pese gigas:
+
+Formato: Usa .jpg para fotos con muchos degradados y sombras. Si quieres algo más moderno y liviano, puedes usar .webp (ahorra hasta un 30% de peso manteniendo la calidad).
+
+Resolución: No necesitas subir la foto original de la cámara (que suele tener 4000px o más). Con un ancho de 1600px a 1920px es más que suficiente para que se vea excelente en cualquier monitor.
+
+Compresión: Antes de subirlas, puedes pasarlas por herramientas gratuitas como TinyJPG o Squoosh.app. Esto elimina datos innecesarios sin que el ojo humano note la diferencia de calidad.
+
+2. El flujo con YouTube
+Al subir tus videos a YouTube y "embeberlos" en tu HTML:
+
+Ganas velocidad: Netlify no tiene que servir archivos pesados .mp4.
+
+Compatibilidad: YouTube se encarga de que el video se vea bien tanto en un celular viejo como en una computadora potente.
+
+Código: Solo tienes que ir a tu video en YouTube, darle a Compartir > Insertar y copiar el código <iframe> en tu archivo galeria.html o donde prefieras.
+
+3. Limpieza de tu repositorio
+Como ahora tienes archivos "provisorios" y un video pesado que casi traba la subida:
+
+Cuando tengas las fotos definitivas, simplemente borra las viejas de tu carpeta imagenes.
+
+Copia las nuevas con los mismos nombres (o actualiza los nombres en el HTML).
+
+Haz el git add ., git commit y git push.
+
+[Inferencia]: Esto mantendrá tu repositorio de GitHub liviano y profesional.
+
+Un detalle técnico sobre los nombres de archivos
+[Inferencia]: He notado que en tu lista de archivos tenías uno llamado mis hijas.jpg.
+Consejo de oro: En la web, evita siempre los espacios en los nombres de archivos (ej: usa mis_hijas.jpg o mishijas.jpg). Los espacios a veces generan errores en ciertos navegadores o servidores.
+
+[Sin verificar]: No puedo verificar si actualmente tienes configurado un sistema de "lazy loading" (carga perezosa) en tu HTML, pero sería ideal para tu galería definitiva para que las fotos carguen a medida que el usuario baja con el scroll.
+
+¿Quieres que cuando tengas las fotos finales te ayude con el código para que la galería se vea más profesional o tipo "mosaico"?
