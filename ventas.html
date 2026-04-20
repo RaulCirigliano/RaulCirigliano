@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -13,6 +13,7 @@
     <meta property="og:description" content="Arte en barro, procesos de cerámicas y galería de esculturas originales.">
     <meta property="og:image" content="imagenes/mujer_tomandose_el_pelo.jpg">
     <meta property="og:url" content="https://raulcirigliano.com.ar/index.html">
+    <meta property="og:type" content="website">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="estilos.css"> 
@@ -22,20 +23,21 @@
     {
       "@context": "https://schema.org/",
       "@type": "Person",
-      "name": "Ro",
+      "name": "Raúl Cirigliano",
       "jobTitle": "Escultor y Ceramista",
       "description": "Artista dedicado a la escultura en cerámica con enfoque en técnicas tradicionales y experimentales.",
-      "url": "https://tuweb.com"
+      "url": "https://raulcirigliano.com.ar"
     }
     </script>
-</head>
+
 
 <body>
 
-    <!-- Header -->
+ <!-- Header -->
     <header>
         <div class="container header-container">
-            <a href="#" class="logo">Arte<span>Barro</span></a>
+            <a href="index.html" class="logo">Arte<span>Barro</span>
+            <span class="logo-subtitle">por Raúl Cirigliano</span></a>
             
             <button class="mobile-menu-btn" id="mobile-menu">
                 <i class="fas fa-bars"></i>
@@ -49,74 +51,10 @@
             </ul>
         </div>
     </header>
-   
+
+
     <!-- Main Content -->
     <main>
-           <!-- Checkout Modal -->
-    <div class="modal" id="checkout-modal">
-        <div class="modal-content">
-            <span class="close-modal" id="close-checkout">&times;</span>
-            <h2>Completar Compra</h2>
-            <form id="checkout-form">
-                <input type="hidden" id="product-id">
-                <input type="hidden" id="product-name">
-                <input type="hidden" id="product-price">
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="name">Nombre completo</label>
-                        <input type="text" id="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Correo electrónico</label>
-                        <input type="email" id="email" required>
-                    </div>
-                </div>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="phone">Teléfono</label>
-                        <input type="tel" id="phone" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="country">País</label>
-                        <input type="text" id="country" required>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="address">Dirección de envío</label>
-                    <textarea id="address" required></textarea>
-                </div>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="city">Ciudad</label>
-                        <input type="text" id="city" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="zip">Código postal</label>
-                        <input type="text" id="zip" required>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="message">Mensaje adicional (opcional)</label>
-                    <textarea id="message"></textarea>
-                </div>
-                
-                <button type="submit" class="btn">Confirmar Compra</button>
-            </form>
-            
-            <div class="success-message" id="success-message">
-                <i class="fas fa-check-circle"></i>
-                <h3>¡Compra realizada con éxito!</h3>
-                <p>Te hemos enviado un correo con los detalles de tu compra. Nos pondremos en contacto contigo pronto para coordinar el envío.</p>
-                <button class="btn" id="close-success">Cerrar</button>
-            </div>
-        </div>
-    </div>
-
      <!-- Shop Section -->
     <section class="shop" id="tienda">
         <div class="container">
@@ -124,60 +62,54 @@
                 <h2>Tienda</h2>
             </div>
             <div class="shop-preview">
-                <div class="product-card" data-id="1" data-available="true">
+                <div class="product-card">
                     <div class="product-image">
                         <img src="imagenes/el_grito_f.jpg" alt="El grito">
                     </div>
-                    <div class="sold-out-badge" style="display: none;">VENDIDO</div>
                     <div class="product-info">
                         <h3 class="product-title">El grito</h3>
-                        <div class="product-price">$120.00</div>
-                        <button class="btn add-to-cart-btn">Comprar Ahora</button>
                     </div>
                 </div>
-                <div class="product-card" data-id="2" data-available="true">
+                <div class="product-card">
                     <div class="product-image">
                         <img src="imagenes/el_grito_e.jpg" alt="El grito">
                     </div>
-                    <div class="sold-out-badge" style="display: none;">VENDIDO</div>
                     <div class="product-info">
                         <h3 class="product-title">El grito</h3>
-                        <div class="product-price">$350.00</div>
-                        <button class="btn add-to-cart-btn">Comprar Ahora</button>
                     </div>
                 </div>
 
 
-		 <div class="product-card" data-id="3" data-available="false">
+		 <div class="product-card">
                     <div class="product-image">
                         <img src="imagenes/mujer_flor.jpg" alt="Mujer con flor">
                     </div>
-                    <div class="sold-out-badge">VENDIDO</div>
                     <div class="product-info">
                         <h3 class="product-title">Mujer con flor</h3>
-                        <div class="product-price">$95.00</div>
-                        <button class="btn btn-disabled" disabled>Agotado</button>
                     </div>
                 </div>
 
 
-                <div class="product-card" data-id="3" data-available="false">
+                <div class="product-card">
                     <div class="product-image">
                         <img src="imagenes/el_espanol.jpg" alt="El espanol">
                     </div>
-                    <div class="sold-out-badge">VENDIDO</div>
                     <div class="product-info">
                         <h3 class="product-title">El espanol</h3>
-                        <div class="product-price">$95.00</div>
-                        <button class="btn btn-disabled" disabled>Agotado</button>
                     </div>
                 </div>
 
 
             </div>
-            <div class="view-more">
-                <a href="#tienda" class="btn">Ver Más Obras</a>
-            </div>
+
+        <p>
+
+            Cada pieza es única y puede ser adaptada a tus preferencias. Contáctame para para averiguar sobre disponibilidad, para seleccionar una pieza de mi colección actual o realizar pedidos personalizados y asi crear juntos tu obra de arte en cerámica desde el enlace de whatsapp inferior o por correo electrónico. Si lo prefieres puedes ver obras ofrecidad en mercado libre. Estoy aquí para ayudarte a llevar la belleza del barro a tu espacio.<br><br>
+
+        </p>
+
+        <div class="view-more">
+            <a href="tienda_en_linea.html" class="btn">Cómo Funciona la Tienda</a>
         </div>
     </section>
 
@@ -193,17 +125,17 @@
                     <p>Creando arte con barro y pasión. Piezas únicas que transforman espacios y se conectan con emociones.</p>
                 </div>
                 <div class="footer-section">
-                    <h3>Enlaces Rápidos</h3>
-                    <p><a href="#inicio">Inicio</a></p>
-                    <p><a href="#galeria">Galería</a></p>
-                    <p><a href="#sobre-mi">Sobre Mí</a></p>
-                    <p><a href="#contacto">Contacto</a></p>
+                    <h3>Enlaces rápidos</h3>
+                    <p><a href="index.html">Inicio</a></p>
+                    <p><a href="galeria.html">Galería</a></p>
+                    <p><a href="ventas.html">Tienda</a></p>
+                    <p><a href="contacto.html">Contacto</a></p>
                 </div>
                 <div class="footer-section">
                     <h3>Contacto</h3>
                     <p><i class="fas fa-envelope"></i> raulcirigliano@gmail.com</p>
-                    <p><i class="fas fa-phone"></i> 054 11 2660 8813</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Taller Central</p>
+                    <p><i class="fas fa-phone"></i> +54 11 2660 8813</p>
+                    <p><i class="fas fa-map-marker-alt"></i> French 480, Villa Martelli, Vicente Lopez, CP 1603</p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -221,5 +153,7 @@
         </div>
     </div>
 
+  
+ <script src="script.js"></script>
 </body>
 </html>
