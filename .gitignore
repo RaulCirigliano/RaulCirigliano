@@ -25,3 +25,8 @@ yarn-error.log*
 
 # OneDrive temporary files
 ~$*
+
+# Large local assets not meant for the published site
+material/
+imagenes/*.mp4
+imagenes/pagina_personal/
