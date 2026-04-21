@@ -1,0 +1,37 @@
+Analicé todos tus archivos en detalle. Acá va el reporte completo con todo lo que encontré:Revisé los 6 archivos en detalle. Acá un resumen rápido de lo más urgente:
+
+**Los 3 errores más críticos para corregir hoy:**
+
+Primero, en `ventas.html` y `personal.html`, el `<body>` está mal ubicado — aparece *después* del `<header>`, lo que es HTML inválido. Segundo, dos productos en la tienda tienen el mismo `data-id="3"`, lo que hace que el sistema de compra confunda cuál producto se vendió. Tercero, el JSON-LD de Schema.org tiene `"name": "Ro"` y la URL apunta a `tuweb.com` — esto daña directamente el posicionamiento en Google.
+
+**Lo bueno:** la estructura general del sitio es sólida, el JavaScript está bien organizado, y el modal de imagen con navegación entre fotos está muy bien implementado. El sitio tiene buen potencial.
+
+Dos productos en ventas.html tienen el mismo data-id="3": "Mujer con flor" y "El español". Esto hace que el script de compra actualice el producto equivocado al procesar una venta.
+
+El <div class="contact-container"> nunca se cierra. El div de contact-info y el map-container quedan dentro pero el contenedor padre no tiene su </div> de cierre antes del footer.
+
+El enlace del logo usa href="#" en vez de href="index.html". En otras páginas el logo no lleva a ningún lado útil.
+
+Los enlaces del footer usan anclas como #galeria, #tienda, pero esas secciones están en páginas separadas (galeria.html, ventas.html). Los links no funcionan.
+
+El mapa de Google usa una URL de embed genérica que busca "Taller Central Buenos Aires Argentina" como texto libre. Sin una dirección exacta o un Place ID de Google Maps, el pin puede aparecer en el lugar equivocado.
+
+El botón "Ver Más Obras" apunta a href="#tienda", que es la misma sección donde ya está el usuario. No lleva a ningún lado nuevo.
+
+La imagen de Photobucket (capítulo 6) usa una URL externa muy antigua de 2009 que probablemente esté rota. También hay referencias a imágenes con espacios en el nombre ("mis hijas.jpg") que pueden fallar en algunos servidores.
+
+El footer se repite idénticamente en 5 archivos. Si necesitás cambiar algo (teléfono, email, links), debés editarlo en 5 lugares distintos.
+Sugerencia: Usar JavaScript para cargar el footer dinámicamente desde un archivo HTML único, o migrar a un generador de sitios estáticos (como Astro o Hugo)
+
+La galería tiene un filtro "Exposiciones" pero ningún ítem tiene data-category="exposiciones" con esa etiqueta — algunos tienen "exposiciones" pero no hay botón. Los filtros y categorías están desincronizados.
+
+El script usa pageYOffset que está obsoleto. Además, la detección del nav activo al hacer scroll compara anclas (#galeria) con URLs de páginas completas (galeria.html), por lo que nunca resalta el link correcto.
+Sugerencia: Reemplazar pageYOffset por window.scrollY y revisar la lógica de detección de página activa.
+
+No hay meta tag og:type en ninguna página. Sin esto, las previsualizaciones en redes sociales (Instagram, WhatsApp, Facebook) pueden no mostrarse correctamente.
+Sugerencia: Agregar <meta property="og:type" content="website"> al head de cada página.
+
+El tag </br> no es HTML válido. El correcto es <br> (sin barra inicial). Aparece dos veces en contacto.html.
+
+
+
