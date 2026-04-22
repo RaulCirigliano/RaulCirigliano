@@ -371,12 +371,15 @@
         
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 25px;
+            align-items: stretch;
         }
         
         .gallery-item {
             position: relative;
+            aspect-ratio: 4 / 3;
+            height: 100%;
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -423,8 +426,9 @@
         
         .gallery-item img {
             width: 100%;
-            height: 250px;
+            height: 100%;
             object-fit: cover;
+            display: block;
             transition: var(--transition);
         }
         
@@ -923,6 +927,10 @@
                 font-size: 2rem;
             }
 
+            .gallery-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
             .youtube-gallery-grid {
                 grid-template-columns: 1fr;
             }
@@ -932,6 +940,12 @@
             }
             }
             
+        @media (max-width: 560px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         /* ...estilos contacto... */
 
             .contact-card {
