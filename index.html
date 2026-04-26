@@ -19,58 +19,53 @@
 
 <body class="site-entry-page">
     <main class="site-entry">
-        <a class="site-entry-link" href="inicio.html" aria-label="Ingresar al sitio">
-            <div class="site-entry-grid" aria-hidden="true">
-                <span class="entry-cell cell-a"><img src="imagenes/mujer_t_p_e.webp" alt=""></span>
-                <span class="entry-cell cell-b"><img src="imagenes/el_duende.webp" alt=""></span>
-                <span class="entry-cell cell-c"><img src="imagenes/mujer_flor.webp" alt=""></span>
-                <span class="entry-cell cell-d"><img src="imagenes/cabeza_meishu.webp" alt=""></span>
-                <span class="entry-cell cell-e"><img src="imagenes/tres.webp" alt=""></span>
-                <span class="entry-cell cell-f"><img src="imagenes/el_grito_f.webp" alt=""></span>
-            </div>
+        <div class="site-entry-grid" aria-hidden="true">
+            <span class="entry-cell cell-a"><img src="imagenes/mujer_t_p_e.webp" alt=""></span>
+            <span class="entry-cell cell-b"><img src="imagenes/el_duende.webp" alt=""></span>
+            <span class="entry-cell cell-c"><img src="imagenes/mujer_flor.webp" alt=""></span>
+            <span class="entry-cell cell-d"><img src="imagenes/cabeza_meishu.webp" alt=""></span>
+            <span class="entry-cell cell-e"><img src="imagenes/tres.webp" alt=""></span>
+            <span class="entry-cell cell-f"><img src="imagenes/el_grito_f.webp" alt=""></span>
+        </div>
 
-            <div class="site-entry-overlay"></div>
+        <div class="site-entry-overlay"></div>
 
-            <div class="site-entry-content">
-                <p class="site-entry-kicker">Raúl Cirigliano</p>
-                <h1>Arcilla, presencia y contemplación.</h1>
-                <p class="site-entry-copy">
-                    Una puerta de entrada al proceso, a la obra terminada y a las piezas disponibles.
-                </p>
-                <span class="site-entry-cta">Ingresar al sitio</span>
-            </div>
-        </a>
+        <div class="site-entry-content">
+            <p class="site-entry-kicker">Raúl Cirigliano</p>
+            <h1>Arcilla, presencia y contemplación.</h1>
+            <p class="site-entry-copy">
+                Una puerta de entrada al proceso, a la obra terminada y a las piezas disponibles.
+            </p>
+            <a class="site-entry-cta" href="inicio.html" aria-label="Ingresar al sitio">
+                Ingresar al sitio
+            </a>
+        </div>
     </main>
 
     <script>
         (() => {
-            const entryLink = document.querySelector('.site-entry-link');
+            const entryMain = document.querySelector('.site-entry');
             const entryGrid = document.querySelector('.site-entry-grid');
 
-            if (!entryLink || !entryGrid) {
-                return;
-            }
+            if (!entryMain || !entryGrid) return;
 
             const updateMotion = (event) => {
-                const rect = entryLink.getBoundingClientRect();
+                const rect = entryMain.getBoundingClientRect();
                 const offsetX = event.clientX - rect.left - rect.width / 2;
                 const offsetY = event.clientY - rect.top - rect.height / 2;
 
                 entryGrid.style.setProperty('--entry-move-x', `${offsetX}px`);
                 entryGrid.style.setProperty('--entry-move-y', `${offsetY}px`);
-                entryLink.classList.add('is-pointer-active');
             };
 
             const resetMotion = () => {
                 entryGrid.style.setProperty('--entry-move-x', '0px');
                 entryGrid.style.setProperty('--entry-move-y', '0px');
-                entryLink.classList.remove('is-pointer-active');
             };
 
-            entryLink.addEventListener('pointermove', updateMotion);
-            entryLink.addEventListener('pointerleave', resetMotion);
+            entryMain.addEventListener('pointermove', updateMotion);
+            entryMain.addEventListener('pointerleave', resetMotion);
         })();
     </script>
 </body>
-
 </html>

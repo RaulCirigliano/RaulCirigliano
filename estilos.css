@@ -42,6 +42,12 @@
             color: inherit;
         }
         
+        .poema {
+            white-space: pre-line;
+            line-height: 1.8;
+            color: var(--color-text);
+        }
+
         ul {
             list-style: none;
         }
@@ -247,34 +253,6 @@
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
         }
 
-           .hero h2 {
-            text-align: center;
-            font-size: 3.2rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-        }
-
-           .hero h3 {
-            text-align: center;
-            font-size: 3rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-        }
-
-           .hero h4 {
-            text-align: center;
-            font-size: 2.8rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-        }
-
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
         
         /* About Section */
 
@@ -306,45 +284,8 @@
             margin-right: 50px;
         }
 
-         .section h1 {
-            text-align: center;
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-        }
-
         .titulo {
             padding-top: 80px;
-        }
-
-        
-           .section h2 {
-            text-align: center;
-            font-size: 3.2rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-        }
-
-           .section h3 {
-            text-align: center;
-            font-size: 3rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-        }
-
-           .section h4 {
-            text-align: center;
-            font-size: 2.8rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-        }
-
-        .section p {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
         }
         
         /* Gallery Section */
@@ -397,6 +338,7 @@
         
         .gallery-item:hover {
             transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
         }
 
         .gallery-video,
@@ -623,7 +565,6 @@
         }
 
         .tienda-page .section-title h2 {
-            font-family: Georgia, "Times New Roman", serif;
             font-size: clamp(2.4rem, 4vw, 4.4rem);
             font-weight: 500;
             letter-spacing: 0.04em;
@@ -671,13 +612,16 @@
         }
 
         .tienda-info-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 26px 34px;
+            column-count: 2;
+            column-gap: 34px;
+            display: block;
         }
 
         .tienda-info-card {
-            background-color: transparent;
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 26px;
+            background-color: #fff;
             border: 1px solid rgba(62, 39, 35, 0.12);
             border-radius: 0;
             padding: 30px 28px;
@@ -687,7 +631,6 @@
         .tienda-info-card h3 {
             margin-bottom: 18px;
             color: var(--color-dark);
-            font-family: Georgia, "Times New Roman", serif;
             font-size: 1.55rem;
             font-weight: 500;
         }
@@ -696,6 +639,7 @@
             margin-bottom: 16px;
             line-height: 1.9;
             color: var(--color-text);
+            white-space: pre-line;
         }
 
         .tienda-info-list {
@@ -945,7 +889,7 @@
             }
 
             .tienda-info-grid {
-                grid-template-columns: 1fr;
+                column-count: 1;
             }
             }
             
@@ -1455,4 +1399,3 @@
             p{
                 text-align: justify;
             }
-
