@@ -19,8 +19,17 @@
         
         // Update active navigation link on scroll
 
+        // Then handle scroll-spy for internal sections if they exist
         const sections = document.querySelectorAll('section');
         const navItems = document.querySelectorAll('.nav-links a');
+
+        // First, set active class based on current URL
+        const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+        navItems.forEach(item => {
+            if (item.getAttribute('href') === currentPath) {
+                item.classList.add('active');
+            }
+        });
         
         if (sections.length && navItems.length) {
             window.addEventListener('scroll', () => {
@@ -36,8 +45,12 @@
                 });
                 
                 navItems.forEach(item => {
-                    item.classList.remove('active');
-                    if (item.getAttribute('href').substring(1) === current) {
+                    const href = item.getAttribute('href');
+                    // Only update active state for hash links (scroll-spy)
+                    // to avoid removing the active state from the main page link
+                    if (current && href && href.startsWith('#') && href.substring(1) === current) {
+                        // Only remove active from other hash links to keep the page link active
+                        navItems.forEach(i => i.classList.remove('active'));
                         item.classList.add('active');
                     }
                 });
@@ -144,12 +157,6 @@
         for (i = 0; i < coll.length; i++) {
             coll[i].addEventListener("click", function () {
                 this.classList.toggle("active");
-                var content = this.nextElementSibling;
-                if (content.style.display === "block") {
-                    content.style.display = "none";
-                } else {
-                    content.style.display = "block";
-                }
             });
         }
     });
