@@ -1538,17 +1538,11 @@
 
         .content > * {
             min-height: 0;
-            margin-bottom: 20px;
         }
 
-        .collapsible.active + .content {
-            grid-template-rows: 1fr;
-            padding-top: 25px;
-            padding-bottom: 25px;
-            border: 1px solid rgba(62, 39, 35, 0.1);
-            border-top: none;
-        }
-
-        .content > * {
-            min-height: 0;
+        /* Evita el colapso de márgenes que oculta el título al abrir el acordeón */
+        .content h3 {
+            margin-top: 0;
+            padding-top: 12px;
+            color: var(--color-dark);
         }
