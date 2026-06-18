@@ -1,0 +1,23 @@
+# Ignorar videos pesados que superan el límite de Cloudflare (25MB)
+/imagenes/videos/
+*.mp4
+*.mov
+*.avi
+
+# Otros archivos de sistema
+.DS_Store
+Thumbs.db
+commit_ayuda.bat
+
+# Ignorar la carpeta generada por el script de optimización de imágenes
+optimized_img/
+.vscode/
+
+# Página interna de balance app (no se sube al repositorio)
+public/balance_app.html
+
+public/borrados/
+borrados/
+
+# Ignorar PDFs pesados para evitar problemas con Cloudflare
+public/imagenes/img_horno_leña/*.pdf

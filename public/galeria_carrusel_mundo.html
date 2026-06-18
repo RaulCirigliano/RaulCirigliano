@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+
+    
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esfera de Arte 3D</title>
+    <link rel="icon" type="image/x-icon" href="imagenes/rc.ico">
+    <link rel="shortcut icon" href="imagenes/rc.ico">
+    <meta name="description" content="Explora las obras de arte en 3D a través de este carrusel interactivo.">
+    <meta name="keywords" content="escultor, ceramista, artista, Arte Barro, arte 3D, interactivo">
+    <meta property="og:title" content="Raul Cirigliano | Esfera de Arte 3D">
+    <meta property="og:description" content="Explora las obras de arte en 3D a través de este carrusel interactivo.">
+    <meta property="og:image" content="https://raulcirigliano.com/imagenes/generales/fondo_3.webp">
+    <meta property="og:url" content="https://raulcirigliano.com/carrusel_mundo.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Raúl Cirigliano Arte">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Raul Cirigliano | Esfera de Arte 3D">
+    <meta name="twitter:description" content="Explora las obras de arte en 3D a través de este carrusel interactivo.">
+    <meta name="twitter:image" content="https://raulcirigliano.com/imagenes/generales/fondo_3.webp">
+    <link rel="canonical" href="https://raulcirigliano.com/carrusel_mundo.html">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "WebPage",
+      "name": "Esfera de Arte 3D",
+      "url": "https://raulcirigliano.com/carrusel_mundo.html"
+    }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="galeria_carrusel_mundo.css">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="tipografia.css">
+</head>
+<body>
+    <header></header>
+
+    <div id="c_m_scene">
+        <!-- Esfera 3D -->
+        <div id="c_m_sphere"></div>
+        
+        <!-- Controlador de rotación -->
+        <div class="c_m_slider_container">
+            <button id="c_m_back_btn" class="c_m_glass-btn c_m_back_btn">Volver atrás</button>
+            <label for="c_m_slider" class="c_m_slider_label">Girar mundo de fotografías</label>
+            <input type="range" id="c_m_slider" min="0" max="360" value="0" class="c_m_slider_input">
+        </div>
+    </div>
+    <footer></footer>
+
+    <div id="c_m_lightbox" class="c_m_hidden">
+        <button id="c_m_close-btn" class="c_m_glass-btn">Volver al Mundo</button>
+        <div class="c_m_nav-buttons">
+            <button id="c_m_prev-btn" class="c_m_glass-btn c_m_nav-btn">&lt; Anterior</button>
+            <button id="c_m_next-btn" class="c_m_glass-btn c_m_nav-btn">Siguiente &gt;</button>
+        </div>
+        <img id="c_m_lightbox-img" src="" alt="Vista expandida">
+    </div>
+
+    <script src="galeria_carrusel_mundo.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

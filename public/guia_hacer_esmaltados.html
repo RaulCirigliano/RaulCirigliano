@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio Cerámico Interactivo</title>
+    <meta name="description" content="Manual de esmaltado cerámico. Guía de óxidos, engobes y simulador de curvas térmicas de Raul Cirigliano.">
+    <meta name="keywords" content="escultor, ceramista, artista, Arte Barro, esmaltado, óxidos, engobes">
+    <meta property="og:title" content="Laboratorio Cerámico Interactivo | Raul Cirigliano">
+    <meta property="og:description" content="Guía interactiva de óxidos, recetas de engobes y curvas de horneado para cerámica.">
+    <meta property="og:image" content="https://raulcirigliano.com/imagenes/guia_hacer/oxidos_pigmentos.webp">
+    <meta property="og:url" content="https://raulcirigliano.com/guia_hacer_esmaltados.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Raúl Cirigliano Arte">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Laboratorio Cerámico Interactivo">
+    <meta name="twitter:description" content="Guía interactiva de óxidos y esmaltes cerámicos.">
+    <meta name="twitter:image" content="https://raulcirigliano.com/imagenes/guia_hacer/oxidos_pigmentos.webp">
+    <link rel="canonical" href="https://raulcirigliano.com/guia_hacer_esmaltados.html">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "WebPage",
+      "name": "Laboratorio Cerámico Interactivo"
+    }
+    </script>
+    <link rel="icon" type="image/x-icon" href="imagenes/rc.ico">
+    <link rel="shortcut icon" href="imagenes/rc.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="tipografia.css">
+    <link rel="stylesheet" href="guia_hacer.css">
+</head>
+<body class="guia-page workshop-typography">
+
+    <div class="top-links">
+        <a class="top-link" href="javascript:history.back()"><i class="fas fa-arrow-left"></i> Volver</a>
+        <a class="top-link" href="guia_del_hacer.html"><i class="fas fa-home"></i> Guía del hacer</a>
+    </div>
+
+    <div class="guia-header">
+        <h1>Esmaltados</h1>
+        <p>Procesos de esmaltados, engobes y control térmico</p>
+    </div>
+
+    <div class="tools-wrapper">
+
+    <!-- Chosen Palette: Warm Neutrals with Terracotta Accents (Stone-50 background, Red-900 accents, Amber/Yellow highlights for interaction, reflecting clay, fire, and natural materials). -->
+    <!-- Application Structure Plan: A Dashboard-style Single Page Application. It uses a sidebar for navigation (Topics: Inicio, Engobes, Óxidos, Curvas, Técnicas). This structure allows ceramists to quickly access specific chemical data, formulas, or firing curves without reading linearly. Interactive components (data grids, dynamic charts) transform static text into reference tools. -->
+    <!-- Visualization & Content Choices: 
+         1. Intro/Safety -> Goal: Establish context -> Viz: Alert boxes & textual layout -> Justification: Safety is paramount and needs high visibility.
+         2. Engobe Formulas -> Goal: Compare ratios -> Viz: Visual proportion bars (HTML/Tailwind) -> Justification: Shows volume relationships (Clay vs Flux) intuitively without complex charts.
+         3. Oxides Data -> Goal: Quick reference -> Viz: Interactive Element Grid -> Interaction: Click element to reveal properties -> Justification: Acts like a periodic table specifically for ceramists, improving data retrieval.
+         4. Firing Processes -> Goal: Compare heating profiles -> Viz: Chart.js Line Chart -> Interaction: Toggle between Monococción and Rakú curves -> Library: Chart.js -> Justification: Time/Temp relationships are best understood visually as a curve. 
+         Confirming NO SVG/Mermaid. 
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <aside class="sidebar">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--primary); margin-bottom: 20px; padding-bottom: 10px; flex-wrap: wrap; gap: 10px;">
+            <h2 style="margin-bottom: 0; border-bottom: none; padding-bottom: 0;">Esmaltados</h2>
+           
+        </div>
+        <div id="categoryFilters">
+            <button onclick="navigate('home')" class="category-btn active" id="btn-home">Introducción</button>
+            <button onclick="navigate('engobes')" class="category-btn" id="btn-engobes">Engobes y Fórmulas</button>
+            <button onclick="navigate('oxidos')" class="category-btn" id="btn-oxidos">Alquimia de Óxidos</button>
+            <button onclick="navigate('manual')" class="category-btn" id="btn-manual">Manual de Esmaltado</button>
+            <button onclick="navigate('horneado')" class="category-btn" id="btn-horneado">Tipos de quemas</button>
+            <button onclick="navigate('tecnicas')" class="category-btn" id="btn-tecnicas">Efectos y Procesos</button>
+        </div>
+    </aside>
+    
+    <main class="main-content">
+        <div id="section-home" class="content-section fade-in max-w-5xl mx-auto">
+            
+            <p class="text-lg leading-relaxed mb-8 bg-white p-6 rounded-lg shadow-sm border border-stone-200">
+                Bienvenido al compendio interactivo de Taller Arte Barro. Esta herramienta ha sido diseñada para transformar las notas técnicas, recetas químicas y observaciones de horneado en un entorno dinámico. Aquí podrá explorar las relaciones entre los materiales cerámicos, analizar el comportamiento de los óxidos y visualizar las curvas de temperatura críticas para el éxito de sus piezas. Use el menú lateral para navegar por las diferentes áreas del laboratorio.
+            </p>
+
+            <div class="mb-8 flex justify-center">
+                <img src="imagenes/guia_hacer/oxidos_pigmentos.webp" alt="Guía de procesos esenciales" class="w-full h-auto rounded-xl shadow-md border border-stone-200">
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-red-50 p-6 rounded-xl border border-red-200 shadow-md">
+                    <h3 class="text-xl font-bold text-red-900 mb-3">⚠️ Recomendaciones de Seguridad</h3>
+                    <ul class="space-y-2 text-red-800">
+                        <li><strong>Inhalación:</strong> Los óxidos metálicos son altamente tóxicos. Use guantes y barbijo siempre al manipular polvos.</li>
+                        <li><strong>Contaminación:</strong> Un solo grano de óxido (ej. Cobalto) puede arruinar preparaciones enteras. Mantenga pulcritud extrema.</li>
+                        <li><strong>Registro:</strong> Nunca prepare una muestra sin rotular y anotar la fórmula exacta en su bitácora.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-stone-800 text-stone-100 p-6 rounded-xl shadow-md flex flex-col justify-center">
+                    <h3 class="text-xl font-bold mb-3 text-amber-400">💡 Principio del Taller</h3>
+                    <blockquote class="text-2xl font-serif italic text-stone-300 border-l-4 border-amber-400 pl-4">
+                        "En la cerámica, no hay verdades absolutas, solo pruebas horneadas."
+                    </blockquote>
+                    <p class="mt-4 text-sm text-stone-400 uppercase tracking-widest">- La experimentación es el único camino.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="section-engobes" class="content-section hidden fade-in max-w-5xl mx-auto">
+            <div class="mb-8">
+                <h2 class="text-3xl font-extrabold text-stone-900 border-b-2 border-stone-300 pb-2">Engobes: La Piel del Barro</h2>
+            </div>
+            
+            <p class="text-lg mb-6 text-stone-700 bg-white p-4 rounded-lg shadow-sm">
+                En esta sección analizaremos la composición volumétrica de los engobes. Un engobe es arcilla coloreada que se adhiere a la pieza en estado "tacto de cuero". A continuación, visualice la diferencia de proporciones entre un engobe clásico y uno formulado para vitrificar a altas temperaturas (Gres).
+            </p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                <div class="bg-white rounded-xl shadow-md overflow-hidden border border-stone-200">
+                    <div class="bg-stone-200 p-4 border-b border-stone-300">
+                        <h3 class="text-xl font-bold text-stone-800">Engobe Básico (Baja Temp.)</h3>
+                        <p class="text-sm text-stone-600">Colores limpios, requiere esmalte posterior.</p>
+                    </div>
+                    <div class="p-6">
+                        <div class="mb-4">
+                            <div class="flex justify-between text-sm font-semibold mb-1">
+                                <span>Arcilla Blanca (Tinker)</span>
+                                <span>6 Medidas (Aprox 85%)</span>
+                            </div>
+                            <div class="w-full bg-stone-100 h-8 rounded-md overflow-hidden flex">
+                                <div class="bg-stone-400 h-full w-[85%]"></div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="flex justify-between text-sm font-semibold mb-1">
+                                <span>Fundente (Frita/Adherencia)</span>
+                                <span>5-10%</span>
+                            </div>
+                            <div class="w-full bg-stone-100 h-8 rounded-md overflow-hidden flex">
+                                <div class="bg-amber-300 h-full w-[10%]"></div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="flex justify-between text-sm font-semibold mb-1">
+                                <span>Óxido / Pigmento Colorante</span>
+                                <span>Variable</span>
+                            </div>
+                            <div class="w-full bg-stone-100 h-8 rounded-md overflow-hidden flex">
+                                <div class="bg-blue-400 h-full w-[5%]"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md overflow-hidden border border-stone-200">
+                    <div class="bg-amber-50 p-4 border-b border-amber-200 text-stone-800">
+                        <h3 class="text-xl font-bold text-amber-800">Engobe Vitrificable (Gres)</h3>
+                        <p class="text-sm text-stone-600">1180°C - 1200°C. Textura sedosa y resistente propia.</p>
+                    </div>
+                    <div class="p-6">
+                        <div class="mb-4">
+                            <div class="flex justify-between text-sm font-semibold mb-1">
+                                <span>Arcilla Blanca</span>
+                                <span>6 Partes</span>
+                            </div>
+                            <div class="w-full bg-stone-100 h-8 rounded-md overflow-hidden flex">
+                                <div class="bg-stone-400 h-full w-[75%]"></div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="flex justify-between text-sm font-semibold mb-1">
+                                <span>Esmalte Transparente</span>
+                                <span>1 Parte</span>
+                            </div>
+                            <div class="w-full bg-stone-100 h-8 rounded-md overflow-hidden flex">
+                                <div class="bg-blue-200 h-full w-[20%]"></div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="flex justify-between text-sm font-semibold mb-1">
+                                <span>Óxido Colorante</span>
+                                <span>Variable</span>
+                            </div>
+                            <div class="w-full bg-stone-100 h-8 rounded-md overflow-hidden flex">
+                                <div class="bg-blue-600 h-full w-[5%]"></div>
+                            </div>
+                        </div>
+                        <p class="mt-4 text-sm bg-amber-50 p-3 rounded text-amber-900 border border-amber-200">Al subir la temperatura, el esmalte añadido funde la matriz de arcilla, logrando un brillo satinado sin necesidad de cubierta posterior.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="text-2xl font-bold text-stone-800 mb-4">El Rol del CMC (Carboximetilcelulosa)</h3>
+            <div class="bg-white p-6 rounded-xl shadow-md border border-stone-200">
+                <p class="text-lg text-stone-700 mb-4">Para la aplicación a pincel, el CMC es el vehículo vital. Retarda el secado y nivela la capa.</p>
+                <div class="flex flex-col md:flex-row items-center gap-6">
+                    <div class="flex-1">
+                        <ol class="list-decimal pl-6 space-y-2 text-stone-600 font-medium">
+                            <li>Disolver CMC en agua hasta lograr consistencia de jarabe.</li>
+                            <li>Tener listo el esmalte o engobe en polvo.</li>
+                            <li>Mezclar aproximadamente <strong>50% de volumen de solución CMC</strong> respecto al polvo.</li>
+                        </ol>
+                    </div>
+                    <div class="text-6xl text-stone-300 font-black">
+                        +50%
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="section-oxidos" class="content-section hidden fade-in max-w-5xl mx-auto">
+            <div class="mb-8">
+                <h2 class="text-3xl font-extrabold text-stone-900 border-b-2 border-stone-300 pb-2">Catálogo de Óxidos de Transición</h2>
+            </div>
+
+            <p class="text-lg mb-6 text-stone-700 bg-white p-4 rounded-lg shadow-sm">
+                Interactúe con la tabla de elementos para comprender el comportamiento químico y el resultado cromático de los óxidos puros frente a los pigmentos calcinados en atmósferas de oxidación. Seleccione un elemento para visualizar su perfil.
+            </p>
+
+            <div class="flex flex-col lg:flex-row gap-8">
+                <div class="w-full lg:w-1/2">
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4" id="oxideGrid">
+                    </div>
+                    
+                    <div class="mt-8 bg-stone-800 text-stone-200 p-6 rounded-xl shadow-md">
+                        <h3 class="text-xl font-bold text-amber-400 mb-2">Obtención Artesanal (Acetilación)</h3>
+                        <div class="space-y-4 text-sm">
+                            <div class="border-l-2 border-green-500 pl-3">
+                                <strong class="text-green-400 block text-base">Verde de Cobre</strong>
+                                Sumergir cables de cobre en vinagre y agua oxigenada. Genera acetato que al hornear es óxido puro.
+                            </div>
+                            <div class="border-l-2 border-red-500 pl-3">
+                                <strong class="text-red-400 block text-base">Rojo de Hierro</strong>
+                                Oxidar lana de acero en vinagre por 48 horas. Resulta en óxido de granulometría ultrafina.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-1/2">
+                    <div id="oxideDetail" class="bg-white rounded-xl shadow-lg border border-stone-200 p-8 h-full flex flex-col justify-center items-center text-center transition-all duration-300">
+                        <div class="text-6xl mb-4 text-stone-300">⚛️</div>
+                        <h3 class="text-2xl font-bold text-stone-800 mb-2">Seleccione un elemento</h3>
+                        <p class="text-stone-500">Haga clic en un óxido de la cuadrícula para ver sus propiedades cromáticas y notas técnicas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="section-manual" class="content-section hidden fade-in max-w-5xl mx-auto">
+            <!-- Manual Estructurado -->
+            <div class="bg-white rounded-xl shadow-lg border border-stone-200 overflow-hidden mb-8">
+                <div class="bg-stone-800 p-6 text-center">
+                    <h2 class="text-3xl font-extrabold text-stone-100 tracking-wider">Manual de Esmaltado Cerámico</h2>
+                    <p class="text-stone-300 mt-2 text-lg italic" style="font-family: 'PT Serif', serif; text-transform: none;">Técnicas, Preparación y Cocción</p>
+                </div>
+                
+                <div class="p-6 md:p-8 text-stone-700 space-y-10">
+                    <p class="text-lg leading-relaxed border-l-4 border-amber-500 pl-4 bg-stone-50 p-4 rounded-r-lg">
+                        Esta guía detalla los diversos tipos de esmaltes, sus métodos de preparación, técnicas de aplicación y procesos de horneado, basándose en las lecciones que Taller.
+                    </p>
+
+                    <!-- Sección 1 -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-red-900 border-b-2 border-stone-200 pb-2 mb-4">1. Tipos de Esmaltes según su Base y Acabado</h3>
+                        <p class="mb-4 text-lg">Existen múltiples variedades de esmaltes que se diferencian por su composición química y el efecto visual que producen:</p>
+                        
+                        <div class="space-y-4">
+                            <div class="bg-stone-50 p-4 rounded border border-stone-200">
+                                <h4 class="font-bold text-stone-800 mb-2">Según su base química:</h4>
+                                <ul class="list-disc pl-6 space-y-2">
+                                    <li><strong>Alcalinos:</strong> Son recomendados para vajilla utilitaria (platos, tazas) ya que no son tóxicos. Suelen ser un poco más "lechosos" o apagados que los plúmbicos.</li>
+                                    <li><strong>Plúmbicos:</strong> Contienen plomo, lo que los hace más brillantes y luminosos, pero no deben usarse en piezas para alimentos. Son ideales para esculturas o floreros.</li>
+                                </ul>
+                            </div>
+                            <div class="bg-stone-50 p-4 rounded border border-stone-200">
+                                <h4 class="font-bold text-stone-800 mb-2">Según su transparencia y brillo:</h4>
+                                <ul class="list-disc pl-6 space-y-2">
+                                    <li><strong>Transparentes:</strong> Permiten ver el color del barro o decoraciones previas (como engobes o sellos) debajo de la capa de esmalte.</li>
+                                    <li><strong>Blancos y de Color:</strong> Generalmente son cubritivos, especialmente si tienen una base de esmalte blanco brillante.</li>
+                                    <li><strong>Mates y Satinados:</strong> Se obtienen agregando componentes como alúmina (al 10%) para matar el brillo y lograr texturas satinadas, o rutilo para efectos rústicos y mates.</li>
+                                </ul>
+                            </div>
+                            <div class="bg-stone-50 p-4 rounded border border-stone-200">
+                                <h4 class="font-bold text-stone-800 mb-2">Con efectos especiales:</h4>
+                                <ul class="list-disc pl-6 space-y-2">
+                                    <li><strong>Con Rutilo:</strong> El rutilo (óxido de titanio con algo de hierro) genera manchas, sombras y superficies irregulares muy valoradas en cerámica artística.</li>
+                                    <li><strong>Con Cristales:</strong> Se pueden crear efectos de "puntitos" o manchas fundiendo esmalte previamente, rompiéndolo en cristales y espolvoreándolo sobre una base de esmalte húmedo antes de hornear.</li>
+                                    <li><strong>Con limaduras metálicas:</strong> Agregar limadura de bronce o hierro directamente al barro o bajo el esmalte transparente genera puntos de color (dorados/negros o rojos).</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sección 2 -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-red-900 border-b-2 border-stone-200 pb-2 mb-4">2. Preparación y el uso del CMC</h3>
+                        <p class="mb-4 text-lg">El esmalte suele venir en polvo y se prepara mezclándolo con agua hasta obtener una consistencia similar a la leche espesa o un yogur bebible. Para mejorar la aplicación, especialmente a pincel, se recomienda agregar CMC (Carboximetilcelulosa):</p>
+                        <ul class="list-disc pl-6 space-y-3 bg-white border-l-4 border-blue-400 p-4 rounded shadow-sm">
+                            <li><strong>Preparación del CMC:</strong> Se disuelven unos 3 gramos (o una cucharada) de CMC en polvo en un frasco de agua hirviendo y se deja reposar hasta el día siguiente hasta que parezca una "goma" transparente.</li>
+                            <li><strong>Beneficios:</strong> Al agregar unas cucharadas de esta mezcla al esmalte, este se vuelve más cremoso, no se sedimenta tan rápido en el tacho, se adhiere mejor a la pieza (no se sale al tocarla) y permite que el pincel resbale suavemente sin dejar marcas.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Sección 3 -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-red-900 border-b-2 border-stone-200 pb-2 mb-4">3. Métodos de Aplicación</h3>
+                        <p class="mb-4 text-lg">La elección del método depende del estado de la pieza y el efecto deseado:</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-amber-50 p-4 rounded-lg border border-amber-200">
+                                <h4 class="font-bold text-amber-900 mb-1">Inmersión</h4>
+                                <p class="text-stone-700 text-sm">La pieza (generalmente bizcochada) se sumerge en un recipiente grande con esmalte por 2 o 3 segundos. Es rápido pero da un color uniforme en toda la pieza.</p>
+                            </div>
+                            <div class="bg-amber-50 p-4 rounded-lg border border-amber-200">
+                                <h4 class="font-bold text-amber-900 mb-1">Pincel</h4>
+                                <p class="text-stone-700 text-sm">Ideal para piezas en monococción (crudas) o para aplicar diferentes colores en zonas específicas. Es fundamental aplicar capas gruesas (2 a 3 manos) para que el esmalte tenga cuerpo y dé el color correcto; si es muy fino, queda transparente y sin vida.</p>
+                            </div>
+                            <div class="bg-amber-50 p-4 rounded-lg border border-amber-200">
+                                <h4 class="font-bold text-amber-900 mb-1">Soplete</h4>
+                                <p class="text-stone-700 text-sm">Utiliza un compresor y pistola para lograr superficies muy parejas. Se usa frecuentemente para aplicar esmalte transparente sobre piezas ya decoradas con engobes (técnica bajo cubierta). Es vital mover siempre tanto la pistola como la pieza para evitar chorreos.</p>
+                            </div>
+                            <div class="bg-amber-50 p-4 rounded-lg border border-amber-200">
+                                <h4 class="font-bold text-amber-900 mb-1">Baño interior</h4>
+                                <p class="text-stone-700 text-sm">Consiste en llenar el interior de una pieza con esmalte, moverla para cubrir las paredes y volcar el excedente rápidamente.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sección 4 -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-red-900 border-b-2 border-stone-200 pb-2 mb-4">4. Método y Tiempo de Horneado</h3>
+                        <div class="space-y-4">
+                            <div class="flex flex-col md:flex-row gap-4">
+                                 <div class="flex-1 bg-stone-50 p-4 border border-stone-200 rounded">
+                                     <h4 class="font-bold text-stone-800 mb-1">Monococción vs. Bizcochado</h4>
+                                     <p class="text-sm">Los esmaltes pueden aplicarse sobre piezas bizcochadas (una primera horneada previa) o directamente sobre piezas crudas y secas (monococción). La monococción ahorra tiempo y energía, y los resultados de color y textura suelen ser idénticos.</p>
+                                 </div>
+                                 <div class="flex-1 bg-stone-50 p-4 border border-stone-200 rounded">
+                                     <h4 class="font-bold text-stone-800 mb-1">Temperaturas comunes</h4>
+                                     <ul class="list-disc pl-5 text-sm">
+                                         <li>La mayoría de las pruebas mostradas se hornean a <strong>1060°C</strong>.</li>
+                                         <li>Los esmaltes que contienen rutilo requieren una temperatura ligeramente superior, aproximadamente <strong>1075°C</strong>, para compensar el carácter refractario del rutilo y lograr que funda correctamente.</li>
+                                     </ul>
+                                 </div>
+                            </div>
+                            <div class="bg-stone-50 p-4 border border-stone-200 rounded">
+                                <h4 class="font-bold text-stone-800 mb-1">Proceso de maduración</h4>
+                                <p class="text-sm">Una vez alcanzada la temperatura de maduración, el esmalte se ablanda como "manteca" y se "plancha" sobre la pieza, eliminando pequeñas imperfecciones de la aplicación. Se debe dejar enfriar el horno antes de sacar las muestras para evitar roturas.</p>
+                            </div>
+                            <div class="bg-red-50 p-4 border-l-4 border-red-600 text-red-900 rounded-r flex items-start">
+                                <i class="fas fa-exclamation-triangle mt-1 mr-3 text-red-600"></i>
+                                <div>
+                                    <h4 class="font-bold">Nota importante:</h4>
+                                    <p class="text-sm">Antes de meter cualquier pieza al horno, es obligatorio limpiar bien la base con una esponja para que no quede esmalte en la parte que apoya, de lo contrario la pieza se pegará irremediablemente a la placa del horno.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="section-horneado" class="content-section hidden fade-in max-w-6xl mx-auto">
+            <div class="mb-8 flex flex-col md:flex-row justify-between md:items-end">
+                <div>
+                    <h2 class="text-3xl font-extrabold text-stone-900 border-b-2 border-stone-300 pb-2">Simulador de Curvas Térmicas</h2>
+                </div>
+                <div class="mt-4 md:mt-0 flex gap-2">
+                    <button onclick="updateChart('mono')" id="btn-mono" class="category-btn active">Monococción</button>
+                    <button onclick="updateChart('raku')" id="btn-raku" class="category-btn">Rakú</button>
+                </div>
+            </div>
+
+            <p class="text-lg mb-6 text-stone-700 bg-white p-4 rounded-lg shadow-sm">
+                Visualice y compare los perfiles de temperatura en el tiempo. La curva gráfica ilustra la drástica diferencia entre el ascenso controlado para la monococción (eliminación de agua química) y el choque térmico instantáneo que caracteriza a la técnica Rakú.
+            </p>
+
+            <div class="bg-white p-4 md:p-6 rounded-xl shadow-xl border border-stone-200 mb-8">
+                <div class="chart-container">
+                    <canvas id="firingChart"></canvas>
+                </div>
+            </div>
+
+            <div id="curveExplanation" class="bg-stone-100 p-6 rounded-xl border border-stone-200 text-stone-800">
+            </div>
+            
+            <!-- Manual de Hornos Estructurado -->
+            <div class="bg-white rounded-xl shadow-lg border border-stone-200 overflow-hidden mb-8 mt-8">
+                <div class="bg-stone-800 p-6 text-center">
+                    <h2 class="text-3xl font-extrabold text-stone-100 tracking-wider">Tipos de quemas</h2>
+                    <p class="text-stone-300 mt-2 text-lg italic" style="font-family: 'PT Serif', serif; text-transform: none;">Métodos de Horneado y Equipamiento</p>
+                </div>
+                
+                <div class="p-6 md:p-8 text-stone-700 space-y-10">
+                    <!-- Sección 1 -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-red-900 border-b-2 border-stone-200 pb-2 mb-4">1. Tipos de Hornos</h3>
+                        <p class="mb-4 text-lg">La elección del horno determina el tipo de trabajo, la atmósfera y el costo operativo:</p>
+                        
+                        <div class="space-y-6">
+                            <ul class="list-disc pl-6 space-y-3">
+                                <li><strong>Hornos Eléctricos:</strong> Son los más populares por ser económicos en su consumo, eficientes y fáciles de controlar electrónicamente. Su aislamiento con fibra cerámica espacial los hace muy livianos y de bajo consumo. <br><em class="text-red-700 font-medium">Limitación:</em> Trabajan con atmósfera oxidante (con oxígeno). No se recomiendan para atmósferas reductoras, ya que la falta de oxígeno destruye la capa protectora de las resistencias metálicas, quemándolas prematuramente.</li>
+                                <li><strong>Hornos a Gas:</strong> Permiten inyectar mucha potencia rápidamente y facilitan las atmósferas reductoras. <br><em class="text-red-700 font-medium">Limitación:</em> El calor suele ser más desparejo debido a la corriente de aire que requiere la combustión. Además, las garrafas pueden congelarse por la alta demanda y requieren quemadores con encendido y barrido automático para evitar explosiones.</li>
+                                <li><strong>Hornos a Leña / Combustibles Líquidos:</strong> Históricamente usados para jornadas de varios días. Son muy exigentes físicamente porque requieren alimentación constante y generan un gran gasto de madera, por lo que no son muy ecológicos.</li>
+                            </ul>
+                            
+                            <div>
+                                <h4 class="font-bold text-stone-800 mb-3">Diseños Estructurales</h4>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                                    <div class="bg-stone-50 p-4 border border-stone-200 rounded-lg shadow-sm">
+                                        <strong class="block text-amber-900 mb-1">Prismáticos</strong>
+                                        <span class="text-sm">De carga frontal, mucho más amigables para la espalda.</span>
+                                    </div>
+                                    <div class="bg-stone-50 p-4 border border-stone-200 rounded-lg shadow-sm">
+                                        <strong class="block text-amber-900 mb-1">Cilíndricos</strong>
+                                        <span class="text-sm">De carga superior. Eficientes por su forma, pero físicamente incómodos de cargar.</span>
+                                    </div>
+                                    <div class="bg-stone-50 p-4 border border-stone-200 rounded-lg shadow-sm">
+                                        <strong class="block text-amber-900 mb-1">Con Vagoneta</strong>
+                                        <span class="text-sm">El piso se extrae sobre rieles, facilitando armar la carga por fuera.</span>
+                                    </div>
+                                    <div class="bg-stone-50 p-4 border border-stone-200 rounded-lg shadow-sm">
+                                        <strong class="block text-amber-900 mb-1">De Campana</strong>
+                                        <span class="text-sm">La base queda fija y la carcasa sube. Ideal para esculturas grandes o Rakú.</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                                <div class="bg-stone-50 p-5 rounded-xl border border-stone-200">
+                                <h4 class="font-bold text-stone-800 mb-3">Hornos Alternativos de Autogestión</h4>
+                                <ul class="list-disc pl-6 space-y-2 mb-3">
+                                    <li><strong>Hornallas a cielo abierto:</strong> Pozo rodeado de piedras. Las piezas se templan primero alrededor de las brasas y luego se tapan con material orgánico. Llega a unos 800°C.</li>
+                                    <li><strong>Horno de Papel:</strong> Base de ladrillos, cubierta con una estructura de papel, ramas y barbotina a modo de "cartapesta" volcánica. Alcanza 850°C-900°C.</li>
+                                    <li><strong>Horno Romano:</strong> Construido con ladrillos comunes y adobe. Posee chimenea y varias bocas para controlar el tiraje según el viento. Alcanza los 1000°C.</li>
+                                </ul>
+                                <p class="text-sm text-stone-500 italic">En todos ellos, se recomienda usar leña fina de maderas blandas (pino, álamo) para una buena oxigenación.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sección 2 -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-red-900 border-b-2 border-stone-200 pb-2 mb-4">2. Controles, Instrumentos y Cuidado</h3>
+                        <ul class="list-disc pl-6 space-y-4 mb-4">
+                            <li><strong>Controles Electrónicos y PID:</strong> Los hornos modernos utilizan controladores que permiten programar con total exactitud rampas (subidas de temperatura) y mesetas (mantenimiento de temperatura). Permiten guardar decenas de programas distintos.</li>
+                        
+                <img src="imagenes/img_horno_leña/controlador_ceramica.webp" alt="controles" class="w-full h-auto rounded-xl shadow-md border border-stone-200">
+            </div>
+                            <li><strong>Conos Pirométricos:</strong> Triángulos de arcilla que miden el "trabajo térmico" (la suma de la temperatura y el tiempo). Se doblan cuando alcanzan su madurez y son ideales para verificar si el horno calienta de manera pareja en todos sus rincones o si el control electrónico miente.</li>
+                            <li><strong>Protección de Placas (Estantes):</strong> Para evitar que el esmalte que gotea rompa las placas refractarias del horno, es indispensable pintarlas con una "lechada".
+                                <ul class="list-[circle] pl-6 mt-2 space-y-2 text-sm text-stone-600">
+                                    <li>Se puede usar <strong>Caolín</strong>, que al ser una arcilla se hornea y se pega a la placa, aunque con los usos múltiples tiende a descascararse y puede caer sobre las piezas de abajo.</li>
+                                    <li>También se puede usar <strong>Alúmina Calcinada</strong>, que soporta altísimas temperaturas sin fundirse y queda blanca, actuando como un excelente desmoldante.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="bg-red-50 p-4 border-l-4 border-red-600 text-red-900 rounded-r flex items-start">
+                            <i class="fas fa-exclamation-triangle mt-1 mr-3 text-red-600"></i>
+                            <div>
+                                <h4 class="font-bold">Regla de oro:</h4>
+                                <p class="text-sm">Siempre limpia con una esponja la base de tus piezas esmaltadas antes de meterlas al horno.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sección 3 -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-red-900 border-b-2 border-stone-200 pb-2 mb-4">3. ¿Qué sucede dentro del horno durante la cocción?</h3>
+                        <p class="mb-4 text-lg">El horneado no es solo secar barro; es una transformación físico-química:</p>
+                        <div class="space-y-3">
+                            <div class="flex items-start bg-white p-3 border border-stone-100 rounded shadow-sm">
+                                <span class="flex-shrink-0 bg-stone-800 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mt-0.5 mr-3">1</span>
+                                <p><strong>Evaporación del agua absorbida (Hasta ~115°C):</strong> El agua sale en forma de vapor. Si se sube la temperatura muy rápido, el agua hierve dentro del barro y la pieza explota. Por esto es vital hornear piezas totalmente secas.</p>
+                            </div>
+                            <div class="flex items-start bg-white p-3 border border-stone-100 rounded shadow-sm">
+                                <span class="flex-shrink-0 bg-stone-800 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mt-0.5 mr-3">2</span>
+                                <p><strong>Agua Combinada (Hasta ~500°C):</strong> Se evapora lentamente el agua cristalizada en los minerales.</p>
+                            </div>
+                            <div class="flex items-start bg-white p-3 border border-stone-100 rounded shadow-sm">
+                                <span class="flex-shrink-0 bg-stone-800 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mt-0.5 mr-3">3</span>
+                                <p><strong>Transformación del Cuarzo (500°C - 600°C):</strong> El cuarzo de la pasta cambia de tamaño. Es una fase crítica donde una subida rápida puede fisurar la pieza.</p>
+                            </div>
+                            <div class="flex items-start bg-white p-3 border border-stone-100 rounded shadow-sm">
+                                <span class="flex-shrink-0 bg-stone-800 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mt-0.5 mr-3">4</span>
+                                <p><strong>Vitrificación:</strong> Las partículas alcanzan su temperatura de maduración, se agrupan y se funden formando una matriz vítrea. La pieza se contrae, se hace resistente y pierde su porosidad.</p>
+                            </div>
+                            <div class="flex items-start bg-white p-3 border border-stone-100 rounded shadow-sm">
+                                <span class="flex-shrink-0 bg-stone-800 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mt-0.5 mr-3">5</span>
+                                <p><strong>Enfriamiento y Craquelado:</strong> Si durante el enfriamiento el esmalte de la superficie se contrae más rápido que la arcilla base, se producen tensiones que rompen la capa vítrea (craquelado). Para evitarlo, a menudo se ajusta la fórmula de la pasta base (por ejemplo, agregando cuarzo).</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sección 4 -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-red-900 border-b-2 border-stone-200 pb-2 mb-4">4. Curvas y Métodos de Horneado</h3>
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                            <div class="bg-stone-50 p-5 rounded-lg border border-stone-200">
+                                <h4 class="font-bold text-lg text-stone-800 mb-2">A. El Bizcochado Clásico (1050°C - 1060°C)</h4>
+                                <p class="text-sm">Es la primera horneada que se le da a una pieza para endurecerla y permitir una manipulación segura antes de aplicar el esmalte. Es obligatorio bizcochar las piezas finas y delicadas, pero para piezas con paredes robustas, es evitable.</p>
+                            </div>
+                            <div class="bg-stone-50 p-5 rounded-lg border border-stone-200">
+                                <h4 class="font-bold text-lg text-stone-800 mb-2">C. Alta Temperatura / Gres (1180°C a 1230°C)</h4>
+                                <p class="text-sm">Para el Gres se utilizan pastas formuladas con chamote, caolín, cuarzo y feldespato. Requiere hornos capaces de alcanzar los 1180°C - 1230°C para que la pieza vitrifique por completo, dándole una dureza pétrea y un acabado muy particular y resistente.</p>
+                            </div>
+                            <div class="bg-red-50 p-5 rounded-lg border border-red-200 lg:col-span-2">
+                                <h4 class="font-bold text-lg text-red-900 mb-2">B. Monococción (12 horas - 1050°C)</h4>
+                                <p class="text-sm mb-3">Consiste en esmaltar o engobar la pieza en estado crudo y hornearla una sola vez. Ahorra muchísimo tiempo y energía, y disminuye la manipulación de la pieza. La clave del éxito para evitar roturas es una curva extremadamente lenta:</p>
+                                <ul class="list-disc pl-5 text-sm space-y-2 text-stone-700">
+                                    <li><strong>De 0°C a 100°C:</strong> Toma 1 hora.</li>
+                                    <li><strong>De 100°C a 220°C:</strong> Toma 3 horas más (se llega a las 4 horas de ciclo).</li>
+                                    <li><strong>De 220°C a 550°C:</strong> Se demora hasta alcanzar las 7 u 8 horas de ciclo para pasar lenta la transformación del cuarzo.</li>
+                                    <li><strong>De 550°C a 1050°C:</strong> El horno llega a temperatura tope a las 11 horas.</li>
+                                    <li><strong>Meseta superior:</strong> Se mantiene en 1050°C por 30 minutos para que el esmalte se "planche", expulse burbujas y funda parejo.</li>
+                                    <li><strong>Meseta de bajada:</strong> Desciende a 900°C y se mantiene 30 minutos más para darle estabilidad y evitar un choque térmico brusco. Luego se apaga y se deja enfriar.</li>
+                                </ul>
+                            </div>
+                            <div class="bg-amber-50 p-5 rounded-lg border border-amber-200 lg:col-span-2">
+                                <h4 class="font-bold text-lg text-amber-900 mb-2">D. Técnica de Rakú</h4>
+                                <p class="text-sm mb-3">Es un horneado japonés que implica choques térmicos extremos y atmósferas reductoras para lograr esmaltes craquelados, partes carbonizadas y colores tornasolados:</p>
+                                <ol class="list-decimal pl-5 text-sm space-y-2 text-stone-700">
+                                    <li>Las piezas se bizcochan primero a 1050°C para darles resistencia.</li>
+                                    <li>Se aplican esmaltes industriales, a los cuales se les debe agregar un fundente (como 20% de Bórax) para que se derritan a apenas 900°C.</li>
+                                    <li>El horneado de esmalte es rápido (1 hora a 1 hora y media) y se sube a 900°C - 915°C.</li>
+                                    <li>Se apaga el horno y la pieza se extrae al rojo vivo con pinzas de metal.</li>
+                                    <li>Inmediatamente se entierra en un recipiente con aserrín, que se prende fuego al instante. Se tapa rápidamente ahogando la llama; el humo intenso penetra el craquelado y reduce los óxidos (ej. el cobre se vuelve metálico y rojizo en lugar de verde).</li>
+                                    <li>Se saca del aserrín y se enfría de golpe en agua fría para detener la reducción y evitar que los metales vuelvan a oxidarse.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="section-tecnicas" class="content-section hidden fade-in max-w-5xl mx-auto">
+            <div class="mb-8">
+                <h2 class="text-3xl font-extrabold text-stone-900 border-b-2 border-stone-300 pb-2">Glosario de Técnicas y Efectos</h2>
+            </div>
+
+            <p class="text-lg mb-6 text-stone-700 bg-white p-4 rounded-lg shadow-sm">
+                Explore las metodologías de aplicación y efectos superficiales especiales. Haga clic en cada pestaña para desplegar la descripción técnica, requisitos del proceso y métodos para inducir o controlar reacciones específicas en el esmalte.
+            </p>
+
+            <div class="space-y-4">
+                
+                <div class="border border-stone-300 rounded-lg overflow-hidden bg-white shadow-sm">
+                    <button onclick="toggleAccordion('acc-aplicacion')" class="w-full px-6 py-4 text-left bg-stone-200 hover:bg-stone-300 text-stone-800 font-bold text-xl flex justify-between items-center transition-colors">
+                        <span>🖌️ Técnicas de Aplicación de Esmaltes</span>
+                        <span id="icon-acc-aplicacion" class="text-2xl font-normal transition-transform duration-200">+</span>
+                    </button>
+                    <div id="acc-aplicacion" class="hidden px-6 py-4 text-stone-700 space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="bg-stone-50 p-4 rounded border border-stone-200">
+                                <h4 class="font-bold text-stone-900 mb-2">Inmersión</h4>
+                                <p class="text-sm">Ideal para piezas bizcochadas. Requiere una densidad constante de la suspensión (medida con densímetro o por la prueba de "capa de uña").</p>
+                            </div>
+                            <div class="bg-stone-50 p-4 rounded border border-stone-200">
+                                <h4 class="font-bold text-stone-900 mb-2">Soplete / Compresor</h4>
+                                <p class="text-sm">Permite realizar degradados y capas uniformes sin contacto físico con la pieza. <strong>Uso obligatorio de mascarilla de protección.</strong></p>
+                            </div>
+                            <div class="bg-stone-50 p-4 rounded border border-stone-200">
+                                <h4 class="font-bold text-stone-900 mb-2">Bajo Cubierta</h4>
+                                <p class="text-sm">Pintar sobre la pieza cruda o bizcocho con óxidos+agua. Se recubre con esmalte transparente (alcalino resalta colores, plúmbico da suavidad).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border border-stone-300 rounded-lg overflow-hidden bg-white shadow-sm">
+                    <button onclick="toggleAccordion('acc-raku')" class="w-full px-6 py-4 text-left bg-red-100 hover:bg-red-200 text-red-900 font-bold text-xl flex justify-between items-center transition-colors">
+                        <span>🔥 Proceso Rakú (Choque Térmico)</span>
+                        <span id="icon-acc-raku" class="text-2xl font-normal transition-transform duration-200">+</span>
+                    </button>
+                    <div id="acc-raku" class="hidden px-6 py-4 text-stone-700">
+                        <p class="mb-4">Técnica de origen japonés basada en reducción extrema y choque térmico.</p>
+                        <ol class="list-decimal pl-6 space-y-2 text-stone-800 font-medium">
+                            <li><strong class="text-red-700">Ascenso Rápido:</strong> Llevar el horno velozmente a 900°C.</li>
+                            <li><strong class="text-red-700">Extracción:</strong> Sacar la pieza incandescente (al rojo vivo) con pinzas.</li>
+                            <li><strong class="text-red-700">Reducción:</strong> Colocar en recipiente con material combustible (aserrín, papel). Tapar herméticamente para privar de oxígeno.</li>
+                            <li><strong class="text-red-700">Limpieza:</strong> Sumergir en agua fría inmediatamente para fijar efectos metálicos y limpiar el carbón superficial.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="border border-stone-300 rounded-lg overflow-hidden bg-white shadow-sm">
+                    <button onclick="toggleAccordion('acc-efectos')" class="w-full px-6 py-4 text-left bg-stone-200 hover:bg-stone-300 text-stone-800 font-bold text-xl flex justify-between items-center transition-colors">
+                        <span>💎 Craquelado, Cristales y Rutilo</span>
+                        <span id="icon-acc-efectos" class="text-2xl font-normal transition-transform duration-200">+</span>
+                    </button>
+                    <div id="acc-efectos" class="hidden px-6 py-4 text-stone-700">
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="font-bold text-lg text-stone-900 border-l-4 border-stone-400 pl-2 mb-2">Craquelado</h4>
+                                <p class="text-sm">Buscado en decoración o causado por desajuste en el coeficiente de dilatación entre pasta y esmalte. <br><em>Para evitarlo:</em> Ajustar fórmula agregando sílice o disminuyendo fundentes alcalinos.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg text-amber-600 border-l-4 border-amber-400 pl-2 mb-2">Texturas con Rutilo</h4>
+                                <p class="text-sm">El Rutilo (Óxido de titanio con trazas de hierro) produce manchas rústicas. Requiere subir la temperatura a <strong>1075°C</strong> mínimo para que el efecto "rompa" la tensión del esmalte.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg text-blue-600 border-l-4 border-blue-400 pl-2 mb-2">Macro-cristales</h4>
+                                <p class="text-sm">Requieren una matriz vítrea fluida y una <strong>curva de enfriamiento controlada</strong> (mesetas largas durante el descenso) para permitir que las estructuras cristalinas crezcan de forma visible.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+    </div>
+
+    <script src="guia_hacer.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

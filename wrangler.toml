@@ -1,0 +1,9 @@
+name = "raulcirigliano"
+compatibility_date = "2026-05-07"
+
+[assets]
+directory = "./public"
+# Al apuntar solo a public, Wrangler ignorará automáticamente .git, scripts y archivos de la raíz.
+
+[observability]
+enabled = true

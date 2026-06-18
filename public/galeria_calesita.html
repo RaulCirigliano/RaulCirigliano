@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación de Imágenes | Raul Cirigliano</title>
+    <link rel="icon" type="image/x-icon" href="imagenes/rc.ico">
+    <link rel="shortcut icon" href="imagenes/rc.ico">
+    <meta name="description" content="Galería rotativa 3D de las obras de escultura y cerámica artística de Raul Cirigliano.">
+    <meta property="og:title" content="Raul Cirigliano | Presentación de Imágenes">
+    <meta property="og:description" content="Galería rotativa 3D de las obras de escultura y cerámica artística de Raul Cirigliano.">
+    <meta property="og:image" content="https://raulcirigliano.com/imagenes/ventas/a_extasis_terminado_1.webp">
+    <meta property="og:url" content="https://raulcirigliano.com/galeria_calesita.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Raúl Cirigliano Arte">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Raul Cirigliano | Presentación de Imágenes">
+    <meta name="twitter:description" content="Galería rotativa 3D de las obras de escultura y cerámica artística de Raul Cirigliano.">
+    <meta name="twitter:image" content="https://raulcirigliano.com/imagenes/ventas/a_extasis_terminado_1.webp">
+    <link rel="canonical" href="https://raulcirigliano.com/galeria_calesita.html">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "WebPage",
+      "name": "Presentación de Imágenes",
+      "url": "https://raulcirigliano.com/galeria_calesita.html"
+    }
+    </script>
+    
+    <!-- Librería de iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tus hojas de estilo -->
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="tipografia.css">
+</head>
+<body class="workshop-typography">
+    <!-- El header se inyectará automáticamente desde script.js -->
+    <header></header>
+
+    <!-- Contenido principal -->
+    <main class="container" style="padding-top: 130px; min-height: 60vh; overflow: hidden;">
+        <div class="section-title">
+            <h1>Galería Rotativa</h1>
+            <p>Explora mis obras desde todos los ángulos. Desliza el ratón sobre una imagen para pausar y doble click para aumentar.</p>
+        </div>
+
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="slide" style="--i:1;"><img src="imagenes/galeria_procesos/mtp/mtp_15.webp" alt="Obra 1"></div>
+                <div class="slide" style="--i:2;"><img src="imagenes/galeria_procesos/mtp/mtp_4.webp" alt="Obra 2"></div>
+                <div class="slide" style="--i:3;"><img src="imagenes/galeria_procesos/mtp/mtp_23.webp" alt="Obra 3"></div>
+                <div class="slide" style="--i:4;"><img src="imagenes/galeria_procesos/mtp/mtp_11.webp" alt="Obra 4"></div>
+                <div class="slide" style="--i:5;"><img src="imagenes/galeria_procesos/mtp/mtp_13.webp" alt="Obra 5"></div>
+                <div class="slide" style="--i:6;"><img src="imagenes/galeria_procesos/mtp/mtp_6.webp" alt="Obra 6"></div>
+                <div class="slide" style="--i:7;"><img src="imagenes/galeria_procesos/mtp/mtp_26b.webp" alt="Obra 7"></div>
+                <div class="slide" style="--i:8;"><img src="imagenes/galeria_procesos/mtp/mtp_19.webp" alt="Obra 8"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- El footer se inyectará automáticamente desde script.js -->
+    <footer></footer>
+
+    <!-- Estructura del Modal para ampliación de imágenes -->
+    <div class="image-modal" id="image-modal">
+        <div class="image-modal-content">
+            <span class="image-modal-close" id="image-modal-close">&times;</span>
+            <button class="image-modal-prev" id="image-modal-prev" aria-label="Imagen anterior">‹</button>
+            <img id="image-modal-img" src="" alt="Imagen ampliada">
+            <button class="image-modal-next" id="image-modal-next" aria-label="Siguiente imagen">›</button>
+        </div>
+    </div>
+
+    <!-- Tu script principal -->
+    <script src="script.js"></script>
+</body>
+</html>

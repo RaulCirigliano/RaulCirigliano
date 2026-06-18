@@ -1,0 +1,57 @@
+/* ==========================================================================
+   TIPOGRAFÍA Y ESTÉTICA DE TALLER
+   Fuentes de Google Fonts: Stardos Stencil (Títulos) y PT Serif (Cuerpo)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Stardos+Stencil:wght@400;700&display=swap');
+
+/* Clase global sugerida para verificación segura */
+.workshop-typography {
+    font-family: 'PT Serif', serif;
+}
+
+/* Títulos con estética de stencil */
+.workshop-typography h1,
+.workshop-typography h2,
+.workshop-typography h3,
+.workshop-typography h4,
+.workshop-typography h5,
+.workshop-typography h6,
+.workshop-typography .logo {
+    font-family: 'Stardos Stencil', system-ui;
+    font-weight: 700;
+    letter-spacing: -0.02em; /* Reducción sugerida para evitar desbordamientos */
+    text-transform: uppercase;
+}
+
+/* Ajustes finos para el logo */
+.workshop-typography .logo {
+    letter-spacing: 0.05em;
+    text-transform: none;
+}
+
+.workshop-typography .logo-subtitle {
+    font-family: 'La Belle Aurore', cursive; /* Mantener la firma manuscrita */
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+/* Cuerpo de texto con PT Serif */
+.workshop-typography body,
+.workshop-typography p,
+.workshop-typography a,
+.workshop-typography li,
+.workshop-typography span,
+.workshop-typography div:not(.logo) {
+    /* PT Serif es la fuente base aquí */
+}
+
+/* 
+   Sugerencia de paleta "Taller":
+   Fondo levemente grisáceo o texturizado en lugar de blanco puro (#FFFFFF).
+   Ejemplo: #f2f2f0 o #ebeae6
+*/
+.workshop-typography {
+    /* Descomentar la siguiente línea si se desea probar el fondo grisáceo */
+    /* background-color: #f2f2f0 !important; */
+}

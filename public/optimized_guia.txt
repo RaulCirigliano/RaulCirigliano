@@ -1,0 +1,23 @@
+Paso 1: Abrir la terminal o línea de comandos
+Puedes hacerlo de un par de maneras:
+
+Si estás usando Visual Studio Code, simplemente abre una nueva terminal integrada yendo al menú superior: Terminal > Nueva Terminal.
+Si no estás en un editor, presiona la tecla Windows + R en tu teclado, escribe cmd y presiona Enter para abrir el Símbolo del sistema.
+Paso 2: Navegar hasta la carpeta de tu proyecto
+En la terminal, necesitas moverte a la carpeta donde están tus archivos HTML y tu script de Python. Basado en tu entorno, escribe el siguiente comando y presiona Enter:
+
+cmd
+cd c:\Users\raulc\Desktop\horno_a_leña
+Paso 3: Verificar dependencias (Opcional pero recomendado)
+La mayoría de los scripts en Python que convierten imágenes a WebP utilizan una librería llamada Pillow. Si no la tienes instalada, el script te dará un error. Por las dudas, puedes instalarla o actualizarla ejecutando:
+
+cmd
+pip install Pillow
+Paso 4: Ejecutar el script
+Una vez que estés en la carpeta correcta y tengas las imágenes de tus diapositivas (por ejemplo, en formato .jpg o .png) guardadas allí mismo, ejecuta tu script con el comando de Python:
+
+cmd
+python optimizarweb.py
+(Si finalmente le pusiste optimized.py, simplemente cambia el nombre en el comando: python optimized.py)
+
+¡Listo! Si el script está bien configurado, verás que en esa misma carpeta aparecerán tus nuevas imágenes terminadas en .webp (por ejemplo slide1.webp, slide2.webp, etc.). Una vez que las tengas, al abrir tu archivo index.html en el navegador, ¡el carrusel ya debería mostrarlas perfectamente!
