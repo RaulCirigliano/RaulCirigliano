@@ -61,15 +61,15 @@
                     <button class="filter-btn" onclick="window.location.href='en_preparacion.html'">Exposiciones</button>
                 </div>
 
-                <div class="gallery-grid">
-
-                    <div class="gallery-item" data-category="escultura">
-                        <img src="imagenes/galeria_procesos/mtp/mtp_2.webp" alt="Mujer tomandose el pelo 1" loading="lazy" decoding="async">
-                        <div class="item-info">
-                            <h3>Mujer tomandose el pelo 1</h3>
-                            <p>En proceso</p>
-                        </div>
+                <div class="gallery-item spaced-item" data-category="escultura">
+                    <img src="imagenes/galeria_procesos/mtp/mtp_2.webp" alt="Mujer tomandose el pelo 1" loading="lazy" decoding="async">
+                    <div class="item-info">
+                        <h3>Mujer tomandose el pelo 1</h3>
+                        <p>En proceso</p>
                     </div>
+                </div>
+
+                <div class="gallery-grid">
 
                     <div class="gallery-item" data-category="escultura">
                         <img src="imagenes/galeria_procesos/mtp/mtp_3.webp" alt="Mujer tomandose el pelo 2" loading="lazy" decoding="async">
@@ -237,67 +237,41 @@
                 </div> <!-- Fin de container -->
         </section>
 
-        <section class="gallery-video">
-            <div class="container">
-                <div class="video-gallery">
-                    <h3>Galería de Videos</h3>
-                    <div class="video-gallery-grid">
-                        <div class="video-item" data-video-id="uZVOdYXZnMo">
-                            <img src="https://img.youtube.com/vi/uZVOdYXZnMo/maxresdefault.jpg"
-                                alt="Video de proceso 1" loading="lazy" decoding="async">
-                            <div class="video-overlay">
-                                <div class="play-icon"><i class="fas fa-play"></i></div>
-                            </div>
-                        </div>
-                        <div class="video-item" data-video-id="tfNCwNjJ5xs">
-                            <img src="https://img.youtube.com/vi/tfNCwNjJ5xs/maxresdefault.jpg"
-                                alt="Video de proceso 2" loading="lazy" decoding="async">
-                            <div class="video-overlay">
-                                <div class="play-icon"><i class="fas fa-play"></i></div>
-                            </div>
-                        </div>
-                        <div class="video-item" data-video-id="ndb1LMGBfUw">
-                            <img src="https://img.youtube.com/vi/ndb1LMGBfUw/maxresdefault.jpg"
-                                alt="Video de proceso 3" loading="lazy" decoding="async">
-                            <div class="video-overlay">
-                                <div class="play-icon"><i class="fas fa-play"></i></div>
-                            </div>
-                        </div>
-                        <div class="video-item" data-video-id="3kQU5zA9NqY">
-                            <img src="https://img.youtube.com/vi/3kQU5zA9NqY/maxresdefault.jpg"
-                                alt="Short de proceso 1" loading="lazy" decoding="async">
-                            <div class="video-overlay">
-                                <div class="play-icon"><i class="fas fa-play"></i></div>
-                            </div>
-                        </div>
-                        <div class="video-item" data-video-id="3O7KQEDa2ec">
-                            <img src="https://img.youtube.com/vi/3O7KQEDa2ec/maxresdefault.jpg"
-                                alt="Short de proceso 2" loading="lazy" decoding="async">
-                            <div class="video-overlay">
-                                <div class="play-icon"><i class="fas fa-play"></i></div>
-                            </div>
-                        </div>
-                        <div class="video-item" data-video-id="OU_cOWhhSf0">
-                            <img src="https://img.youtube.com/vi/OU_cOWhhSf0/maxresdefault.jpg"
-                                alt="Video de proceso 4" loading="lazy" decoding="async">
-                            <div class="video-overlay">
-                                <div class="play-icon"><i class="fas fa-play"></i></div>
-                            </div>
-                        </div>
-                    </div>
+        <section class="video-component-container">
+            <div class="main-video-wrapper">
+                <div id="main-video-player" class="lite-youtube" data-video-id="uZVOdYXZnMo">
+                    <img src="https://img.youtube.com/vi/uZVOdYXZnMo/maxresdefault.jpg" alt="Portada del video" id="main-video-thumb">
+                    <button class="play-button" aria-label="Reproducir video"></button>
+                </div>
+                <h3 id="main-video-title">Video de proceso 1</h3>
+            </div>
+            <div class="video-carousel">
+                <div class="carousel-item active" data-id="uZVOdYXZnMo" data-title="Video de proceso 1">
+                    <img src="https://img.youtube.com/vi/uZVOdYXZnMo/mqdefault.jpg" alt="Miniatura Video de proceso 1" loading="lazy" decoding="async">
+                    <p>Video de proceso 1</p>
+                </div>
+                <div class="carousel-item" data-id="tfNCwNjJ5xs" data-title="Video de proceso 2">
+                    <img src="https://img.youtube.com/vi/tfNCwNjJ5xs/mqdefault.jpg" alt="Miniatura Video de proceso 2" loading="lazy" decoding="async">
+                    <p>Video de proceso 2</p>
+                </div>
+                <div class="carousel-item" data-id="ndb1LMGBfUw" data-title="Video de proceso 3">
+                    <img src="https://img.youtube.com/vi/ndb1LMGBfUw/mqdefault.jpg" alt="Miniatura Video de proceso 3" loading="lazy" decoding="async">
+                    <p>Video de proceso 3</p>
+                </div>
+                <div class="carousel-item" data-id="3kQU5zA9NqY" data-title="Short de proceso 1">
+                    <img src="https://img.youtube.com/vi/3kQU5zA9NqY/mqdefault.jpg" alt="Miniatura Short de proceso 1" loading="lazy" decoding="async">
+                    <p>Short de proceso 1</p>
+                </div>
+                <div class="carousel-item" data-id="3O7KQEDa2ec" data-title="Short de proceso 2">
+                    <img src="https://img.youtube.com/vi/3O7KQEDa2ec/mqdefault.jpg" alt="Miniatura Short de proceso 2" loading="lazy" decoding="async">
+                    <p>Short de proceso 2</p>
+                </div>
+                <div class="carousel-item" data-id="OU_cOWhhSf0" data-title="Video de proceso 4">
+                    <img src="https://img.youtube.com/vi/OU_cOWhhSf0/mqdefault.jpg" alt="Miniatura Video de proceso 4" loading="lazy" decoding="async">
+                    <p>Video de proceso 4</p>
                 </div>
             </div>
         </section>
-
-        <!-- Video Modal -->
-        <div class="video-modal" id="video-modal">
-            <div class="video-modal-content">
-                <span class="video-modal-close" id="video-modal-close">&times;</span>
-                <iframe id="video-modal-iframe" src=""
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen></iframe>
-            </div>
-        </div>
     </main>
 
     <!-- Footer -->
