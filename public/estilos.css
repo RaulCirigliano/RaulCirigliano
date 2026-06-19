@@ -2556,3 +2556,30 @@
 .poema-img-left { display: block; height: 240px; margin-bottom: 10px; margin-left: auto; margin-right: auto; margin-top: 0px; text-align: left; width: 240px; }
 .poema-img-right-wrapper { clear: right; float: right; margin-bottom: 1em; margin-left: 1em; }
 .poema-img-right { display: block; height: 240px; margin-bottom: 10px; margin-left: auto; margin-right: auto; margin-top: 0px; text-align: center; width: 320px; }
+
+
+
+
+/* ==========================================================================
+   ESTILO PARA ENLACE GUIA DEL HACER EN NAVBAR (Derecha / Final)
+   ========================================================================== */
+.nav-guia-btn {
+    font-size: 0.75rem !important;
+    color: rgba(255, 255, 255, 0.4) !important;
+    font-style: italic;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin-left: 15px; /* separacion extra del resto de los enlaces */
+    letter-spacing: 0.05em;
+    text-transform: none !important; /* no lo queremos en mayusculas si los otros lo estan */
+    transition: color 0.3s ease;
+}
+
+.nav-guia-btn:hover {
+    color: rgba(255, 255, 255, 0.8) !important;
+    transform: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
