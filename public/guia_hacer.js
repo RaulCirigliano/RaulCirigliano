@@ -34,6 +34,43 @@ function showSlides(n) {
     }
 }
 
+// MULTI-SLIDER LOGIC
+const slidersState = {};
+function changeSlideId(n, sliderId) {
+    if(!slidersState[sliderId]) slidersState[sliderId] = 1;
+    showSlidesId(slidersState[sliderId] += n, sliderId);
+}
+function currentSlideId(n, sliderId) {
+    slidersState[sliderId] = n;
+    showSlidesId(n, sliderId);
+}
+function showSlidesId(n, sliderId) {
+    let container = document.getElementById(sliderId);
+    if (!container) return;
+    let slides = container.getElementsByClassName("horno-slide");
+    let dots = container.getElementsByClassName("dot");
+    if (slides.length === 0) return;
+    
+    if (n > slides.length) {slidersState[sliderId] = 1}
+    if (n < 1) {slidersState[sliderId] = slides.length}
+    
+    for (let i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
+    for (let i = 0; i < dots.length; i++) { dots[i].className = dots[i].className.replace(" active-dot", ""); }
+    
+    slides[slidersState[sliderId]-1].style.display = "block";
+    if (dots.length > 0) {
+        dots[slidersState[sliderId]-1].className += " active-dot";
+    }
+}
+// Init function for new sliders
+function initSliders() {
+    document.querySelectorAll('.slider-container[id]').forEach(container => {
+        slidersState[container.id] = 1;
+        showSlidesId(1, container.id);
+    });
+}
+window.addEventListener('DOMContentLoaded', initSliders);
+
 const getPlaceholder = (text) => {
     return `https://placehold.co/600x400/f9f5f0/8B5A2B?text=${encodeURIComponent('Herramienta\n(Sin foto)')}`;
 };
