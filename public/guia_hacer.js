@@ -429,7 +429,7 @@ const imageMap = {
     "manta termica": "imagenes/imagenes_insumos_ceramica/manta_termica.webp",
     "PASTA LISA": "imagenes/imagenes_insumos_ceramica/pasta_lisa.webp",
     "PASTA RAKU / PASTA CHAMOTE": "imagenes/imagenes_insumos_ceramica/pasta_raku_1.webp",
-    "PUMA MOLIDA": "imagenes/imagenes_insumos_ceramica/arcilla_tincar_zeta_molida.webp",
+    "PUMA MOLIDA": "imagenes/imagenes_insumos_ceramica/puma_molida.webp",
     "ROJA EN POLVO": "imagenes/imagenes_insumos_ceramica/pasta_roja_lisa.webp",
     "SILICATO DE SODIO": "imagenes/imagenes_insumos_ceramica/silicato_sodio.webp",
     "Talco chino": "imagenes/imagenes_insumos_ceramica/talco_chino.webp",
