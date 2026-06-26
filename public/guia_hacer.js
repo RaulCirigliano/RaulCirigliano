@@ -410,7 +410,7 @@ function updateChartDOM(type) {
 // 3. GUÍA DE INSUMOS
 // ==========================================================================
 const imageMap = {
-    "A.P.M. 112 (Arcilla Plástica Misionera)": "imagenes/imagenes_insumos_ceramica/apm_112.webp",
+    "A.P.M. 112 (Arcilla Plástica Misionera)": "imagenes/imagenes_insumos_ceramica/arcilla_apm_112.webp",
     "acido bórico": "imagenes/imagenes_insumos_ceramica/acido_borico_1.webp",
     "ARCILLA TINCAR ZETA MOLIDA": "imagenes/imagenes_insumos_ceramica/arcilla_tincar_zeta_molida.webp",
     "borax anhidro": "imagenes/imagenes_insumos_ceramica/borax_1.webp",
