@@ -895,13 +895,20 @@ button[onclick^="toggleAccordion"] span { color: white !important; }
     background: var(--card-bg);
     border: 1px solid var(--card-border);
     border-radius: 20px;
-    overflow: hidden;
+    overflow: hidden; /* Crucial para el efecto de expansión */
     backdrop-filter: blur(8px);
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+    transition: max-height 0.5s ease-in-out, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
     display: flex;
     flex-direction: column;
     position: relative;
     z-index: 1;
+    max-height: 480px; /* Altura inicial limitada para mostrar solo un resumen */
+    cursor: pointer;
+}
+
+.insumos-page .card.expanded {
+    max-height: 2000px; /* Altura suficiente para mostrar todo el contenido */
+    z-index: 10;
 }
 
 .insumos-page .card::before {
@@ -1027,6 +1034,11 @@ button[onclick^="toggleAccordion"] span { color: white !important; }
     color: var(--text-main);
     margin-bottom: 25px;
     line-height: 1.65;
+    /* Anula los estilos de truncamiento heredados de .card p */
+    display: block;
+    -webkit-line-clamp: unset;
+    -webkit-box-orient: unset;
+    overflow: visible;
 }
 
 .insumos-page .uso-box {
@@ -1041,6 +1053,15 @@ button[onclick^="toggleAccordion"] span { color: white !important; }
     border-right: 1px solid var(--uso-border);
     border-bottom: 1px solid var(--uso-border);
     line-height: 1.6;
+}
+
+.insumos-page .uso-box p {
+    /* Anula los estilos de truncamiento y margen para el párrafo de uso */
+    display: block;
+    -webkit-line-clamp: unset;
+    -webkit-box-orient: unset;
+    overflow: visible;
+    margin-bottom: 0;
 }
 
 .insumos-page .back-to-index {

@@ -171,6 +171,29 @@ document.addEventListener('DOMContentLoaded', () => {
     // 3. Inicializar guía de insumos
     if (document.getElementById('materialsGrid')) {
         renderizarMateriales();
+
+        const grid = document.getElementById('materialsGrid');
+        grid.addEventListener('click', function(event) {
+            const card = event.target.closest('.card');
+            if (!card) return;
+
+            // No hacer nada si se hace clic en un enlace dentro de la tarjeta
+            if (event.target.closest('a')) {
+                return;
+            }
+
+            const isExpanded = card.classList.contains('expanded');
+
+            // Colapsar todas las tarjetas expandidas
+            grid.querySelectorAll('.card.expanded').forEach(c => {
+                c.classList.remove('expanded');
+            });
+
+            // Si la tarjeta clickeada no estaba expandida, la expandimos
+            if (!isExpanded) {
+                card.classList.add('expanded');
+            }
+        });
     }
 
     // 4. Inicializar laboratorio de esmaltados
