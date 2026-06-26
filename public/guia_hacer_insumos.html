@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Estudio: Materiales Cerámicos</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="tipografia.css">
+    <link rel="stylesheet" href="guia_hacer.css">
+</head>
+<body class="guia-page workshop-typography insumos-page">
+
+ <div class="top-links">
+                <a class="top-link" href="javascript:history.back()"><i class="fas fa-arrow-left"></i> Volver</a>
+                <a class="top-link" href="guia_del_hacer.html"><i class="fas fa-home"></i> Guía del hacer</a>
+            </div>
+    <header class="guia-header" id="page-top">
+        <h1>Fichas Técnicas Completas</h1>
+        <p class="subtitle">Manual de estudio diagramado con todos los detalles técnicos, usos recomendados e iconografía oficial del taller.</p>
+    </header>
+
+    <div class="container">
+
+        <!-- Referencias de Iconos -->
+        <div class="referencias-box">
+            <span onclick="filterByCategory('pasta')">🏺 Arcillas y Pastas</span>
+            <span onclick="filterByCategory('esmalte')">🎨 Esmaltes y Engobes</span>
+            <span onclick="filterByCategory('oxido')">🖌️ Pigmentos y Óxidos</span>
+            <span onclick="filterByCategory('herramientas')">🛠️ Herramientas y Equipos</span>
+            <span onclick="filterByCategory('refractario')">🧱 Refractarios</span>
+            <span onclick="filterByCategory('fundente')">🔥 Fundentes</span>
+            <span onclick="filterByCategory('')">📦 Ver Todos</span>
+        </div>
+
+        <div class="controls">
+            <input type="text" id="searchInput" class="search-bar" placeholder="🔍 Buscar material, categoría, descripción o uso..." onkeyup="filterCards()">
+        </div>
+
+        <div class="grid" id="materialsGrid">
+            <!-- Las tarjetas se insertarán dinámicamente aquí -->
+        </div>
+        <div id="noResults" class="no-results">
+            No se encontraron materiales que coincidan con tu búsqueda.
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="guia_hacer.js"></script>
+</body>
+</html>

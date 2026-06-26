@@ -772,3 +772,314 @@ pre, .concept-map pre, .graphic {
 button[onclick^="toggleAccordion"] { background-color: var(--color-dark) !important; color: white !important; border-radius: 8px; transition: var(--transition); }
 button[onclick^="toggleAccordion"]:hover { background-color: var(--color-accent) !important; transform: translateY(-2px); }
 button[onclick^="toggleAccordion"] span { color: white !important; }
+
+/* --- ESTILOS PARA GUIA DE INSUMOS --- */
+.insumos-page.guia-page {
+    --text-main: #3E2723; /* var(--color-dark) */
+    --text-muted: #777;
+    --card-bg: rgba(255, 255, 255, 0.85);
+    --card-border: rgba(62, 39, 35, 0.15);
+    --accent-primary: #8B5A2B; /* var(--color-primary) */
+    --accent-secondary: #A52A2A; /* var(--color-accent) */
+    --accent-glow: rgba(139, 90, 43, 0.15);
+    --category-bg: rgba(139, 90, 43, 0.1);
+    --category-text: #8B5A2B;
+    --uso-bg: rgba(165, 42, 42, 0.05);
+    --uso-border: rgba(165, 42, 42, 0.3);
+    --font-display: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    font-family: var(--font-body);
+    line-height: 1.6;
+    padding-bottom: 60px;
+    overflow-x: visible;
+}
+
+.insumos-page .guia-header {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    position: relative; /* Para controlar el apilamiento */
+    z-index: 1; /* Asegura que esté debajo de la barra pegajosa (que tiene z-index: 100) */
+    scroll-margin-top: 70px; /* Añade un margen superior al hacer scroll para que la barra fija no lo tape */
+}
+
+.insumos-page header::after {
+    display: none;
+}
+
+.insumos-page h1 {
+    color: white;
+    font-family: 'Stardos Stencil', system-ui;
+}
+
+.insumos-page .subtitle {
+    color: white;
+    opacity: 0.9;
+    font-family: 'PT Serif', serif;
+}
+
+.insumos-page .container {
+    max-width: 1350px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.insumos-page .referencias-box {
+    background: transparent;
+    border: none;
+    padding: 20px;
+    margin: 30px auto 40px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    backdrop-filter: none;
+    box-shadow: none;
+    max-width: 1000px;
+}
+
+.insumos-page .referencias-box span {
+    background: transparent;
+    border: 1px solid var(--color-primary);
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.insumos-page .referencias-box span:hover {
+    background: var(--color-primary);
+    color: white;
+}
+
+.insumos-page .controls {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.insumos-page .search-bar {
+    width: 100%;
+    max-width: 550px;
+    padding: 16px 28px;
+    border-radius: 30px;
+    border: 1px solid rgba(0,0,0,0.15);
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.insumos-page .search-bar:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 4px var(--accent-glow);
+}
+
+.insumos-page .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 35px;
+}
+
+.insumos-page .card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    overflow: hidden;
+    backdrop-filter: blur(8px);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+}
+
+.insumos-page .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: radial-gradient(circle at top right, var(--accent-glow), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.insumos-page .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1), 0 0 25px var(--accent-glow);
+    border-color: var(--accent-primary);
+}
+
+.insumos-page .card:hover::before {
+    opacity: 1;
+}
+
+.insumos-page .card-img-wrapper {
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+    position: relative;
+    background-color: #e0d8ce;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.insumos-page .card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+
+.insumos-page .card:hover .card-img {
+    transform: scale(1.08);
+}
+
+.insumos-page .card-img-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 90px;
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.9), transparent);
+}
+
+.insumos-page .card-content {
+    padding: 30px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.insumos-page .category-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.insumos-page .category-icon {
+    font-size: 1.6rem;
+    background: rgba(0, 0, 0, 0.04);
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid var(--card-border);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.insumos-page .category {
+    background: var(--category-bg);
+    color: var(--category-text);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    border: 1px solid var(--category-bg);
+}
+
+.insumos-page .card-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 18px;
+    line-height: 1.35;
+}
+
+.insumos-page .section-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.insumos-page .section-label i {
+    color: var(--accent-primary);
+}
+
+.insumos-page .description {
+    font-size: 1rem;
+    color: var(--text-main);
+    margin-bottom: 25px;
+    line-height: 1.65;
+}
+
+.insumos-page .uso-box {
+    margin-top: auto;
+    background: var(--uso-bg);
+    border-left: 4px solid var(--accent-secondary);
+    padding: 18px;
+    border-radius: 0 10px 10px 0;
+    font-size: 0.95rem;
+    color: var(--text-main);
+    border-top: 1px solid var(--uso-border);
+    border-right: 1px solid var(--uso-border);
+    border-bottom: 1px solid var(--uso-border);
+    line-height: 1.6;
+}
+
+.insumos-page .back-to-index {
+    display: block;
+    text-align: center;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid var(--card-border);
+}
+
+.insumos-page .back-to-index a {
+    color: var(--accent-primary);
+    text-decoration: none;
+    font-weight: 600;
+    font-family: var(--font-display);
+    transition: color 0.3s ease;
+}
+
+.insumos-page .back-to-index a:hover {
+    color: var(--text-main);
+    text-decoration: underline;
+}
+
+.insumos-page .no-results {
+    text-align: center;
+    grid-column: 1 / -1;
+    padding: 60px;
+    color: var(--text-muted);
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    display: none;
+    background: rgba(255,255,255,0.5);
+    border-radius: 12px;
+    border: 1px dashed var(--card-border);
+}
+
+@media (max-width: 768px) {
+    .insumos-page h1 { font-size: 2.8rem; }
+    .insumos-page .grid { grid-template-columns: 1fr; }
+    .insumos-page .card-img-wrapper { height: 200px; }
+    .insumos-page .referencias-box { padding: 15px; }
+}

@@ -168,13 +168,18 @@ document.addEventListener('DOMContentLoaded', () => {
         renderTools();
     }
 
-    // 3. Inicializar laboratorio de esmaltados
+    // 3. Inicializar guía de insumos
+    if (document.getElementById('materialsGrid')) {
+        renderizarMateriales();
+    }
+
+    // 4. Inicializar laboratorio de esmaltados
     if (document.getElementById('oxideGrid')) {
         renderOxides();
         navigate('home');
     }
 
-    // 4. Modal de imágenes dinámico para guías (hacer zoom al hacer click)
+    // 5. Modal de imágenes dinámico para guías (hacer zoom al hacer click)
     let imageModal = document.getElementById('image-modal');
     if (!imageModal) {
         imageModal = document.createElement('div');
@@ -376,6 +381,153 @@ function updateChartDOM(type) {
             btnMono.classList.remove('active');
         }
     }
+}
+
+// ==========================================================================
+// 3. GUÍA DE INSUMOS
+// ==========================================================================
+const imageMap = {
+    "A.P.M. 112 (Arcilla Plástica Misionera)": "imagenes/imagenes_insumos_ceramica/apm_112.webp",
+    "acido bórico": "imagenes/imagenes_insumos_ceramica/acido_borico_1.webp",
+    "ARCILLA TINCAR ZETA MOLIDA": "imagenes/imagenes_insumos_ceramica/arcilla_tincar_zeta_molida.webp",
+    "borax anhidro": "imagenes/imagenes_insumos_ceramica/borax_1.webp",
+    "CAOLÍN VERÓNICA": "imagenes/imagenes_insumos_ceramica/caolin_veronica.webp",
+    "CARBONATO DE CALCIO": "imagenes/imagenes_insumos_ceramica/carbonato_calcio.webp",
+    "CARBURO DE SILICIO (Malla 220)": "imagenes/imagenes_insumos_ceramica/carburo_de_silicio.webp",
+    "CEMENTO": "imagenes/imagenes_insumos_ceramica/cemento.webp",
+    "CHAMOTE MOLIDO (Varias Mallas)": "imagenes/imagenes_insumos_ceramica/chamote_molido.webp",
+    "CMC": "imagenes/imagenes_insumos_ceramica/cmc_1.webp",
+    "CUARZO M200": "imagenes/imagenes_insumos_ceramica/cuarzo_m_200.webp",
+    "Feldepato Sódico (Albita)": "imagenes/imagenes_insumos_ceramica/feldepato_albita_bruto.webp",
+    "FELDESPATO Potásico (piedra grande) M200": "imagenes/imagenes_insumos_ceramica/feldepato_potasico_grande.webp",
+    "goma arabiga": "imagenes/imagenes_insumos_ceramica/goma_arabiga.webp",
+    "harina de rutilo": "imagenes/imagenes_insumos_ceramica/harina_de_rutilo.webp",
+    "ladrillo k 26": "imagenes/imagenes_insumos_ceramica/ladrillo_k_26.webp",
+    "manta termica": "imagenes/imagenes_insumos_ceramica/manta_termica.webp",
+    "PASTA LISA": "imagenes/imagenes_insumos_ceramica/pasta_lisa.webp",
+    "PASTA RAKU / PASTA CHAMOTE": "imagenes/imagenes_insumos_ceramica/pasta_raku_1.webp",
+    "PUMA MOLIDA": "imagenes/imagenes_insumos_ceramica/arcilla_tincar_zeta_molida.webp",
+    "ROJA EN POLVO": "imagenes/imagenes_insumos_ceramica/pasta_roja_lisa.webp",
+    "SILICATO DE SODIO": "imagenes/imagenes_insumos_ceramica/silicato_sodio.webp",
+    "Talco chino": "imagenes/imagenes_insumos_ceramica/talco_chino.webp",
+    "TALCO INDUSTRIAL": "imagenes/imagenes_insumos_ceramica/talco_industrial.webp",
+    "TINCAR SUPER MOLIDA": "imagenes/imagenes_insumos_ceramica/tincar_super_molida.webp",
+    "VERMICULITA EXPANDIDA": "imagenes/imagenes_insumos_ceramica/vermiculita_expandida.webp"
+};
+
+const fallbackImage = "./imagenes_insumos_ceramica/arcilla_tincar_zeta_molida.webp";
+
+const materiales = [
+    { id: 1, categoria: "Arcillas Plásticas", nombre: "A.P.M. 112 (Arcilla Plástica Misionera)", descripcion: "Altamente plástica y pegajosa. Posee un altísimo porcentaje de contracción, generando tensiones fuertes durante la pérdida de humedad.<br><br><b>🧱 Arcilla APM 112 Rosada Molida - Piedra Grande</b><br>Plasticidad, versatilidad y base para gres<br><br><b>¿Qué es?</b><br>Arcilla natural de origen argentino, extraída en Zapala (Neuquén), ampliamente utilizada en la formulación de pastas cerámicas.<br>🎨 Desarrolla tonos cálidos, rosados a marrones según temperatura y atmósfera<br>👉 Ideal como base para pastas de gres<br><br><b>🎨 ¿Para qué sirve?</b><br>Ideal para: 👉 Formulación de pastas de gres 👉 Modelado manual 👉 Torneado 👉 Producción cerámica en general<br><br><b>🎨 ¿Qué la hace especial?</b><br>👉 Alta plasticidad ✔️ Excelente para modelado y torneado ✔️ Muy buena trabajabilidad<br>👉 Composición equilibrada ✔️ Contenido moderado de hierro ✔️ Buena respuesta en cocción<br><br><b>💡 Características</b><br>🟤 Arcilla rosada 🧪 Alto contenido de sílice y alúmina ⚙️ Plasticidad aprox. 31% 🔥 Buen comportamiento en cocción", uso: "Añadir en pequeños porcentajes (5% a 15%) para 'levantar' o plastificar pastas que son excesivamente magras/cortas.<br><br><b>🧪 Recomendaciones de uso</b><br>👉 Puede usarse pura o combinada con otras arcillas<br>👉 Ideal mezclar con arcillas blancas si se busca aclarar tono<br><br><b>⚠️ Importante</b><br>👉 Al ser un material natural, puede presentar variaciones<br>👉 Puede generar “alma negra” si no se controla la cocción en ciertas formulaciones<br>👉 Ajustar según el equilibrio de la fórmula." },
+    { id: 2, categoria: "Fundentes", nombre: "acido bórico", descripcion: "<b>¿Qué es?</b><br>Compuesto químico soluble en agua, utilizado como fundente en formulaciones cerámicas.<br>👉 Reduce la temperatura de fusión y mejora el comportamiento del esmalte durante la cocción.<br>👉 Ayuda a controlar el coeficiente de expansión, evitando grietas, tensiones y deformaciones.<br><br><b>💡 Características</b><br>🧪 Compuesto a base de óxido bórico<br>🤍 Color blanco<br>💧 Soluble en agua<br>🔥 Activo en formulaciones<br>📏 Malla aprox. 170", uso: "<b>🎨 ¿Para qué sirve?</b><br>Ideal para: 👉 Formulación de esmaltes 👉 Producción de fritas 👉 Ajuste de composiciones cerámicas.<br><br><b>🧪 Recomendaciones de uso</b><br>👉 Incorporar en proporciones controladas<br>👉 Ajustar según el resultado buscado<br>✔️ Más cantidad → mayor fusión<br>✔️ Menor cantidad → efecto más sutil<br><br><b>⚠️ Importante</b><br>👉 Producto técnico para formulación<br>👉 Pequeñas variaciones generan cambios significativos" },
+    { id: 3, categoria: "Arcillas Plásticas", nombre: "ARCILLA TINCAR ZETA MOLIDA", descripcion: "<b>🧱 Arcilla Tincar Zeta Molida - Piedra Grande</b><br>Plasticidad, versatilidad y rendimiento en pastas<br><br><b>¿Qué es?</b><br>Arcilla plástica semi refractaria utilizada en cerámica para la formulación de pastas en distintos rangos de temperatura.<br>🎨 Desarrolla tonos claros a crema<br>👉 Apta para baja, media y alta temperatura (gres)<br><br><b>🎨 ¿Para qué sirve?</b><br>Ideal para: 👉 Formulación de pastas cerámicas 👉 Torneado 👉 Modelado 👉 Producción cerámica<br><br><b>🎨 ¿Qué la hace especial?</b><br>👉 Plasticidad equilibrada ✔️ Muy buena trabajabilidad ✔️ Mais control que arcillas extremadamente plásticas<br>👉 Bajo contenido de hierro ✔️ Colores más claros en cocción<br>👉 Composición estable ✔️ Buena respuesta en mezclas<br><br><b>💡 Características</b><br>🟤 Polvo claro 🧪 Plasticidad aprox. 36,8% 🔥 Semi refractaria ⚙️ Buena estabilidad en formulación", uso: "<b>🧪 Recomendaciones de uso</b><br>👉 Ideal para usar sola o en mezclas<br>👉 Aporta estabilidad a la pasta<br>✔️ Buen equilibrio entre plasticidad y contracción<br>✔️ Mejora el comportamiento general<br><br><b>🧱 Diferencias entre Tincar Super y Zeta</b><br>⚖️ <b>Resumen:</b> Super = más plástica, más fácil, más “blanda” | Z = más estable, más firme, más técnica" },
+    { id: 4, categoria: "Formadores de Vidrio", nombre: "borax anhidro", descripcion: "Producto obtenido por deshidratación del bórax mediante fusión.<br>👉 Material duro y vítreo que no se rehidrata en condiciones normales de almacenamiento.<br>👉 Actúa como fundente y formador de vidrio, mejorando el comportamiento en esmaltes y fritas.<br>🧪 Alto poder fundente<br>🔥 Formador de vidrio<br>⚙️ Libera boro de forma controlada en solución<br>📏 Polvo malla aprox. 140<br>👉 Mejora la eficiencia de fusión y el control del B₂O₃", uso: "Formulación de esmaltes<br>👉 Producción de fritas cerámicas<br>👉 Desarrollo de composiciones vítreas<br>👉 Incorporar en proporciones controladas<br>👉 Ajustar según formulación<br>✔️ Mejora la fusión<br>✔️ Optimiza el comportamiento del esmalte" },
+    { id: 5, categoria: "Refractarios (Caolines)", nombre: "CAOLÍN VERÓNICA", descripcion: "Arcilla primaria. Estructura pura de alúmina y sílice, blancura extrema y resistencia a altísimas temperaturas sin fundir. Muy baja plasticidad ('corta').<br>El Caolín Verónica es un silicato de alúmina hidratado puro de alta calidad. A diferencia de las arcillas comunes, no ha sido transportado por la naturaleza, por lo que conserva una estructura cristalina pura pero muy poco plástica (es 'corto' o quebradizo al tacto húmedo).<br><b>Color de quema:</b> Desarrolla tonos claros y estables, con una leve tendencia cálida o amarillenta.<br><b>Alta refractariedad:</b> Contiene un alto porcentaje de alúmina, lo que eleva drásticamente el punto de maduración térmica de la mezcla.", uso: "Base indispensable para formular porcelanas, pastas de gres prístinas y engobes super blancos.<br><br><b>Función en el taller:</b> Actúa como el armazón de la pasta en altas temperaturas. Evita que las piezas se deformen. En los esmaltes, aporta la alúmina necesaria para regular la viscosidad e impedir que el vidrio chorree." },
+    { id: 6, categoria: "Fundentes", nombre: "CARBONATO DE CALCIO", descripcion: "A alta temperatura es un fundente activo; a baja temperatura actúa como refractario. Libera dióxido de carbono (CO2) entre 800°C-900°C.", uso: "Opacar o matear esmaltes de baja temperatura. Fundente en esmaltes de gres. <br><b>[Revisor]:</b> Cuidado con cocciones rápidas, genera cráteres.<br><br><b>🧪 Recomendaciones de uso</b><br>👉 Usar en proporciones controladas<br>✔️ Mejora formulación y permite ajustar acabado." },
+    { id: 7, categoria: "Complementos y Aditivos", nombre: "CARBURO DE SILICIO (Malla 220)", descripcion: "Material extremadamente abrasivo y refractario. En ciertos esmaltes, actúa como agente reductor local liberando gases.<br><br><b>🧪 Carburo de Silicio #220</b><br>Resistencia extrema y efectos reactivos<br><b>¿Qué es?</b> Material (SiC) de alta resistencia. Se emplea en refractarios (placas, soportes) y en esmaltes como agente reactivo, generando burbujas y efectos visuales.", uso: "Formulación de esmaltes 'cráter' o volcánicos (reacciona generando burbujas). También usado como placa refractaria o abrasivo.<br><br><b>🧪 Recomendaciones de uso</b><br>👉 Usar en pequeñas proporciones en esmaltes.<br>✔️ Más cantidad → más burbujeo.<br>✔️ Menor cantidad → efecto más sutil.<br><b>⚠️ Importante:</b> Puede generar defectos si no se controla." },
+    { id: 8, categoria: "Aislantes e Infraestructura", nombre: "CEMENTO", descripcion: "Aglomerante hidráulico. <b>[Revisor Crítico]:</b> Se degrada calcificándose y perdiendo integridad estructural al superar temperaturas moderadas.", uso: "Construcción de bases escultóricas en frío, contrapesos o moldes rígidos. <b>NO</b> apto para partes interiores del horno expuestas a la llama." },
+    { id: 9, categoria: "Modificadores Estructurales", nombre: "CHAMOTE MOLIDO (Varias Mallas)", descripcion: "Arcilla que ya ha sido horneada y triturada. Abre la estructura de la pasta viva permitiendo el escape uniforme de la humedad. No se contrae.<br><br><b>🧱 ¿Qué hace el chamote?</b><br>👉 Es un desengrasante.<br>👉 Reduce la contracción (menos grietas).<br>👉 Mejora el secado y la resistencia en crudo.<br>👉 Aumenta la estabilidad (menos deformaciones).<br>👉 Genera textura.", uso: "Aportar 'diente' y soporte estructural a obras escultóricas grandes. Fundamental para resistir el choque térmico (Raku, fuego directo)." },
+    { id: 10, categoria: "Otros", nombre: "CMC", descripcion: "Adhesión, viscosidad y control en esmaltes.<br><b>¿Qué es?</b> Aditivo orgánico (Carboximetilcelulosa) usado en esmaltes y engobes como aglutinante, espesante y regulador del agua.<br>👉 Mejora la adherencia del esmalte en crudo.<br>👉 Aumenta la viscosidad para una aplicación uniforme.<br>👉 Retiene agua, retrasando el secado (ideal para pincel).", uso: "<b>🎨 ¿Para qué sirve?</b><br>👉 Aglutinante en esmaltes y engobes.<br>👉 Espesante (control de viscosidad).<br>👉 Regulador de agua y dispersante.<br><br><b>💡 Qué mejora</b><br>👉 Mejor adherencia del esmalte.<br>👉 Aplicación más uniforme y menor decantación." },
+    { id: 11, categoria: "Formadores de Vidrio", nombre: "CUARZO M200", descripcion: "Sílice pura (SiO2) triturada. Experimenta un cambio súbito de volumen a los 573°C (Inversión del Cuarzo) que puede causar 'dunting' si se enfría rápido.<br>El cuarzo M200 es sílice pura molida a una granulometría extremadamente fina (inferior a 74 micrones), con aspecto de talco blanco.", uso: "Base absoluta del vidrio en esmaltes. En pastas, ajusta la expansión térmica para evitar que los esmaltes se craquelen. Su finura permite mayor rapidez y homogeneidad química en el horno." },
+    { id: 12, categoria: "Otros", nombre: "Feldepato Sódico (Albita)", descripcion: "<b>🧱 Feldespato Sódico (Albita) #200</b><br>Fusión activa y mayor poder fundente.<br><b>¿Qué es?</b> Materia prima cerámica (aluminosilicato sódico), utilizada como fundente en esmaltes y vidrios.<br>🎨 En cocción genera fusión más rápida y activa.<br>👉 Muy utilizado en esmaltes brillantes.", uso: "<b>🎨 ¿Para qué sirve?</b><br>👉 Reducir temperatura de fusión y aumentar brillo del esmalte.<br><b>⚠️ Importante:</b> Es más fluido que el potásico, por lo que puede escurrir." },
+    { id: 13, categoria: "Fundentes", nombre: "FELDESPATO Potásico (piedra grande) M200", descripcion: "Aporta metales alcalinos (sodio o potasio) para interactuar con la sílice, y alúmina que otorga viscosidad para evitar el escurrimiento.<br><br><b>🧱 Feldespato Potásico #200</b><br>Fusión progresiva y amplio rango de vitrificación.<br><b>¿Qué es?</b> Fundente principal en esmaltes y pastas.<br>🎨 En cocción genera una fusión más controlada y estable.", uso: "Fundente clásico y principal para pastas y esmaltes de alta temperatura (gres y porcelana).<br>👉 Lograr esmaltes más controlados y con mayor rango de vitrificación.<br><b>⚠️ Importante:</b> Menos activo que el sódico, requiere mayor temperatura." },
+    { id: 14, categoria: "Adherencia", nombre: "goma arabiga", descripcion: "<b>¿Qué es?</b> Aditivo natural utilizado en esmaltes y engobes para mejorar la adherencia sobre la pieza cerámica.<br>👉 Favorece la fijación del material en crudo.<br>👉 Actúa de forma similar al CMC, mejorando la aplicación y el control de la mezcla.", uso: "<b>🎨 ¿Para qué sirve?</b><br>👉 Aglutinante en esmaltes y engobes.<br>👉 Aplicación de pigmentos y decoraciones.<br>👉 Trabajo sobre vidrio.<br><br><b>🧪 Recomendaciones de uso</b><br>👉 Usar en proporciones controladas (aprox. 65% agua / 35% goma).<br><b>⚠️ Importante:</b> En exceso puede aumentar demasiado la viscosidad." },
+    { id: 15, categoria: "Adherencia", nombre: "harina de rutilo", descripcion: "<b>🧪 Harina de Rutilo #200</b><br>Modificación de color, profundidad y efecto natural.<br><b>¿Qué es?</b> Óxido de titanio (rutilo) en molienda fina. A diferencia de la arena de rutilo, no genera puntos visibles, sino que actúa de forma integrada sobre el esmalte, modificando su tono y comportamiento.", uso: "<b>🎨 ¿Para qué sirve?</b><br>👉 Modificar el color del esmalte (tonos cálidos).<br>👉 Aportar leve opacidad.<br>👉 Favorecer efectos visuales complejos.<br><br><b>🧪 Preparación y uso</b><br>👉 Usar en proporciones bajas (1% a 5%).<br><b>⚠️ Importante:</b> No es un jaspeador como la arena de rutilo. Su efecto es uniforme." },
+    { id: 16, categoria: "Hornos", nombre: "ladrillo k 26", descripcion: "Ladrillo refractario aislante.", uso: "Paredes de hornos, aislación." },
+    { id: 17, categoria: "Hornos", nombre: "manta termica", descripcion: "Fibra cerámica para aislación de alta temperatura.", uso: "Aislación de paredes y tapas de hornos. Resiste fuego directo." },
+    { id: 18, categoria: "Pastas Comerciales Preparadas", nombre: "PASTA LISA", descripcion: "Fórmula comercial refinada carente de partículas abrasivas (chamote). Mayor índice de contracción.", uso: "Trabajos de precisión en torno alfarero o modelado de pequeño formato con alto detalle." },
+    { id: 19, categoria: "Pastas Comerciales Preparadas", nombre: "PASTA RAKU / PASTA CHAMOTE", descripcion: "Fórmulas preparadas en fábrica ricas en material refractario y chamote para soportar grandes tensiones físicas.", uso: "Escultura, modelado a mano alzada y técnicas de cocción primitiva o reducción agresiva (Raku)." },
+    { id: 20, categoria: "Fundentes especiales", nombre: "PUMA MOLIDA", descripcion: "Piedra pómez triturada. Esencialmente un vidrio volcánico natural compuesto de silicato de alúmina con metales alcalinos. En el mercado local, la <b>Arcilla Puma</b> es una <i>ball clay</i> patagónica de altísima plasticidad. Quema en color blanco a blanco cremoso.", uso: "Fundente complejo para lograr esmaltes texturados. En escultura, se incorpora a la pasta para aligerar el peso. Como <i>ball clay</i>, se usa para dar liga y resistencia mecánica en crudo a la pasta." },
+    { id: 21, categoria: "Arcillas Plásticas", nombre: "ROJA EN POLVO", descripcion: "Arcilla rica en óxido de hierro (Fe2O3), el cual actúa como un fundente enérgico haciendo que madure a menor temperatura.<br><br><b>🧱 Pasta Roja Lisa</b><br>Pasta cerámica roja lista para usar, ideal para modelado manual y torno, con un tono cálido que aporta identidad a cada pieza.", uso: "Formulación de engobes decorativos intensos, terracotas o pastas de baja temperatura con aspecto rústico.<br><br><b>🔥 Cocción:</b> 1020°C a 1060°C.<br><b>🚀 ¿Por qué elegirla?</b><br>🟤 Color cálido y natural<br>🎨 Ideal para estética artesanal<br>🌀 Versátil: modelado + torno" },
+    { id: 22, categoria: "Complementos y Aditivos", nombre: "SILICATO DE SODIO", descripcion: "Químico altamente alcalino. Modifica radicalmente las cargas eléctricas de las partículas de arcilla dispersándolas en agua con muy poco líquido.<br><br><b>🧪 ¿Qué hace como defloculante?</b><br>Reduce la cantidad de agua necesaria en barbotinas, mejorando la fluidez sin perder cuerpo.", uso: "Defloculante primario para barbotina de colada. Aplicado superficialmente y secado con soplete, genera texturas de 'piel de elefante'.<br><br><b>⚙️ ¿Cómo se usa?</b><br>✔️ Dosificación recomendada: 0,3% sobre el peso seco.<br><b>⚠️ Importante:</b> Un exceso puede desestabilizar la barbotina." },
+    { id: 23, categoria: "Fundentes especiales", nombre: "Talco chino", descripcion: "Silicato de magnesio. Fundente secundario y modificador de pastas y esmaltes.", uso: "<b>🎨 ¿Para qué sirve?</b><br>👉 Formulación de pastas cerámicas.<br>👉 Fundente secundario en esmaltes.<br>👉 Ajuste de propiedades térmicas (resistencia al choque térmico)." },
+    { id: 24, categoria: "Fundentes especiales", nombre: "TALCO INDUSTRIAL", descripcion: "Silicato de magnesio. Su cualidad principal es la reducción drástica de la expansión térmica de las piezas horneadas.", uso: "Ingrediente estrella en pastas cerámicas para resistir choque térmico violento (flameware) y para prevenir el craquelado de esmaltes." },
+    { id: 25, categoria: "Arcillas Plásticas", nombre: "TINCAR SUPER MOLIDA", descripcion: "Arcilla secundaria, color claro, muy plástica. La versión 'Super' ha pasado por levigación/molienda fina, retirando impurezas orgánicas y hierro.<br><br><b>🧱 Arcilla Tincar Super Molida - Piedra Grande</b><br>Arcilla plástica semi refractaria muy versátil.<br>🎨 Desarrolla tonos claros a crema.<br>🧪 Alta plasticidad (≈39,5%).", uso: "Esqueleto principal para formulación de loza y gres. Engobes finos o pastas de torno que requieran textura sedosa.<br><br><b>🧱 Uso real en taller</b><br>👉 <b>Tincar Super:</b> para trabajar cómodo (torno, modelado, pastas blandas).<br>👉 <b>Tincar Z:</b> para controlar la pasta (producción, piezas grandes, mezclas técnicas)." },
+    { id: 26, categoria: "Aislantes e Infraestructura", nombre: "VERMICULITA EXPANDIDA", descripcion: "Mineral micáceo super-calentado que se expande en forma de acordeón. Extremadamente ligero y altamente refractario/aislante.", uso: "Aislante térmico en el relleno de paredes de hornos cerámicos.<br><b>[Sin verificar su resistencia límite para atmósferas continuas de alta temperatura cerámicas].</b>" }
+];
+
+function getIconForCategory(cat) {
+    if (!cat) return '📦';
+    cat = cat.toLowerCase();
+    if(cat.includes('arcilla') || cat.includes('pasta')) return '🏺';
+    if(cat.includes('esmalte') || cat.includes('engobe')) return '🎨';
+    if(cat.includes('pigmento') || cat.includes('óxido') || cat.includes('oxido')) return '🖌️';
+    if(cat.includes('herramienta') || cat.includes('equipo')) return '🛠️';
+    if(cat.includes('refractario') || cat.includes('horno')) return '🧱';
+    if(cat.includes('fundente')) return '🔥';
+    return '📦';
+}
+
+function renderizarMateriales() {
+    const grid = document.getElementById('materialsGrid');
+    grid.innerHTML = '';
+    
+    materiales.forEach((mat) => {
+        const icon = getIconForCategory(mat.categoria);
+        const imgSrc = imageMap[mat.nombre] || fallbackImage;
+
+        const cardHTML = `
+            <div class="card" data-nombre="${mat.nombre.toLowerCase()}" data-categoria="${mat.categoria.toLowerCase()}">
+                <div class="card-img-wrapper">
+                    <img src="${imgSrc}" alt="Imagen de ${mat.nombre}" class="card-img" loading="lazy" onerror="this.src='${fallbackImage}'">
+                </div>
+                <div class="card-content">
+                    <div class="category-wrapper">
+                        <span class="category-icon" title="Categoría: ${mat.categoria}">${icon}</span>
+                        <span class="category">${mat.categoria.replace(/^\d+\.\s*/, '')}</span>
+                    </div>
+                    <h2 class="card-title">${mat.nombre}</h2>
+                    
+                    <div class="section-label">📋 Descripción & Propiedades</div>
+                    <p class="description">${mat.descripcion}</p>
+                    
+                    <div class="uso-box">
+                        <div class="section-label">🎯 Uso Recomendado</div>
+                        <p>${mat.uso}</p>
+                    </div>
+
+                            <div class="back-to-index">
+                                <a href="#page-top">▲ Volver al índice</a>
+                            </div>
+                </div>
+            </div>
+        `;
+        grid.insertAdjacentHTML('beforeend', cardHTML);
+    });
+}
+
+function filterByCategory(keyword) {
+    const searchInput = document.getElementById('searchInput');
+    searchInput.value = keyword;
+    filterCards();
+}
+
+function normalizeText(text) {
+    return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
+function filterCards() {
+    const input = document.getElementById('searchInput').value.toLowerCase();
+    const normalizedInput = normalizeText(input);
+    const cards = document.querySelectorAll('.card');
+    let hasVisibleCards = false;
+
+    cards.forEach(card => {
+        const nombre = card.getAttribute('data-nombre');
+        const categoria = card.getAttribute('data-categoria');
+        const desc = card.querySelector('.description').innerHTML.toLowerCase();
+        const uso = card.querySelector('.uso-box p').innerHTML.toLowerCase();
+        const cardText = `${nombre} ${categoria} ${desc} ${uso}`;
+        const normalizedCardText = normalizeText(cardText);
+
+        if (normalizedCardText.includes(normalizedInput)) {
+            card.style.display = 'flex';
+            hasVisibleCards = true;
+        } else {
+            card.style.display = 'none';
+        }
+    });
+    document.getElementById('noResults').style.display = hasVisibleCards ? 'none' : 'block';
 }
 
 function toggleAccordion(id) {
