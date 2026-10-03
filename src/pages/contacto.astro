@@ -1,0 +1,82 @@
+---
+import Layout from '../components/Layout.astro';
+const extraCss = ['tipografia.css'];
+---
+
+<Layout 
+  titulo="Contacto | Raul Cirigliano | Escultura y Cerámica Artística"
+  descripcion="Contacto de Raul Cirigliano para encargos, consultas y ubicaciones."
+  palabrasClave="escultor, ceramista, artista, Arte Barro, contacto, encargos"
+  imagenOG="https://raulcirigliano.com/imagenes/mujer_t_p.webp"
+  extraCss={extraCss}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Person",
+      "name": "Raúl Cirigliano",
+      "url": "https://raulcirigliano.com"
+    }
+    </script>
+  </Fragment>
+
+<main>
+        <section class="contact" id="contacto">
+            <div class="container">
+                <div class="section-title">
+                    <h1>Contacto</h1>
+                    <p>Escríbeme para encargos, consultas o pedidos personalizados.</p>
+                    <br>
+                </div>
+
+                <div class="contact-container">
+                    <div class="contact-info contact-card">
+                        <h3>Contacto directo</h3>
+                        <p>Envía un correo, visita mis redes o consulta mi ubicación.</p>
+                        <br>
+                        <a class="btn btn-secondary" href="mailto:raulcirigliano@gmail.com?subject=Consulta%20desde%20la%20web&body=Hola%20Raul,%0D%0A%0D%0A">
+                            <i class="fas fa-envelope"></i> Enviar correo
+                        </a>
+                        <a class="btn btn-whatsapp-style" href="https://wa.me/5491126608813?text=Hola%20Raúl,%20vengo%20desde%20tu%20sitio%20web" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+
+                        <div class="contact-details">
+                            <p><i class="fas fa-envelope"></i> <a href="mailto:raulcirigliano@gmail.com">raulcirigliano@gmail.com</a></p>
+                            <p><i class="fas fa-phone"></i> <a href="tel:+541126608813">+54 11 2660 8813</a></p>
+                            <p><i class="fas fa-map-marker-alt"></i> French 480, Villa Martelli, Vicente Lopez, Argentina, CP 1603</p>
+                        </div>
+
+                        <div class="social-links">
+                            <a href="https://www.instagram.com/raulcirigliano/" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.facebook.com/raulcirigliano/" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://wa.me/5491126608813" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+
+            <div class="map-container">
+                <h3>Ubicación en Google Maps</h3>
+                <div class="map-frame">
+                    <iframe
+                        src="https://www.google.com/maps?q=French+480+Villa+Martelli+Vicente+Lopez+Argentina+1603&output=embed"
+                        width="100%"
+                        height="420"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+        </div>
+        </section>
+    </main>
+</Layout>

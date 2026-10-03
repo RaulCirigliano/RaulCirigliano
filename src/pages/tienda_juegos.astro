@@ -1,0 +1,75 @@
+---
+import Layout from '../components/Layout.astro';
+const extraCss = ['tipografia.css'];
+---
+
+<Layout 
+  titulo="Raul Cirigliano | Juegos y muñecas"
+  descripcion="Ajedrez y juegos y muñecas clásicas por Raul Cirigliano."
+  palabrasClave="escultor, ceramista, artista, Arte Barro, juegos, ajedrez, muñecas"
+  imagenOG="https://raulcirigliano.com/imagenes/plegaria_2.webp"
+  extraCss={extraCss}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "WebPage",
+      "name": "Juegos y Muñecas",
+      "url": "https://raulcirigliano.com/tienda_juegos.html"
+    }
+    </script>
+  </Fragment>
+
+<main class="gallery-hub">
+        <section class="hub-hero">
+            
+            <div class="container hub-hero-inner">
+                <div class="hub-copy">
+                    <p class="hub-kicker">Juegos</p>
+                    <h1>Juegos y muñecas clásicas</h1>
+                    <p class="hub-intro">
+                        Ajedrez, piezas y tableros de diferentes estilos, cerámica y madera. Tableros
+                        Batalla naval.
+                    </p>
+                </div>
+
+                <div class="hub-grid">
+                    <div class="shop-navigation-placeholder" style="grid-column: 1 / -1;"></div>
+                    <!-- Tarjeta Principal de Juegos -->
+                    <a class="hub-card hub-card-main" href="en_preparacion.html" aria-label="Ir a Juego Principal">
+                        <img loading="lazy" src="imagenes/ventas/mujer_tomandose_el_pelo.webp" alt="Imagen representativa de juego">
+                        <span class="hub-card-shadow"></span>
+                        <div class="hub-card-content">
+                            <p>Destacado</p>
+                            <h2>Ajedrez</h2>
+                            <span>Piezas y tableros</span>
+                        </div>
+                    </a>
+
+                    <!-- Tarjeta Secundaria 1 -->
+                    <a class="hub-card" href="en_preparacion.html" aria-label="Ir a Experimento 1">
+                        <img loading="lazy" src="imagenes/ventas/mujer_tomandose_el_pelo.webp" alt="Miniatura de proyecto">
+                        <span class="hub-card-shadow"></span>
+                        <div class="hub-card-content">
+                            <p>Juego</p>
+                            <h2>Batalla naval</h2>
+                            <span>Explorar</span>
+                        </div>
+                    </a>
+
+                    <!-- Tarjeta Secundaria 2 -->
+                    <a class="hub-card" href="en_preparacion.html" aria-label="Ir a Experimento 2">
+                        <img loading="lazy" src="imagenes/ventas/mujer_tomandose_el_pelo.webp" alt="Miniatura de proyecto">
+                        <span class="hub-card-shadow"></span>
+                        <div class="hub-card-content">
+                            <p>Muñecas</p>
+                            <h2>Cerámica y trapo</h2>
+                            <span>Estilo antiguo</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>

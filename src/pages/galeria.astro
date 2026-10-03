@@ -1,0 +1,116 @@
+---
+import Layout from '../components/Layout.astro';
+const extraCss = ['tipografia.css'];
+---
+
+<Layout 
+  titulo="Raul Cirigliano | Galerías y Ventas"
+  palabrasClave="escultor, ceramista, artista, Arte Barro, galerías, obras de arte"
+  imagenOG="https://raulcirigliano.com/imagenes/el_duende.webp"
+  extraCss={extraCss}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Person",
+      "name": "Raúl Cirigliano",
+      "url": "https://raulcirigliano.com"
+    }
+    </script>
+  </Fragment>
+
+<main class="gallery-hub">
+        <section class="hub-hero">
+            <div class="container hub-hero-inner">
+                <div class="hub-copy">
+                    <p class="hub-kicker">Entradas visuales</p>
+                    <h1>Galerías de Escultura y Cerámica Artística</h1>
+                    <p class="hub-intro">
+                        Un acceso directo a los procesos, a las obras terminadas y a las piezas disponibles.
+                        Tres recorridos distintos para mirar, contemplar y acercarte al barro desde lugares diferentes.
+                    </p>
+                </div>
+
+                <div class="hub-grid galerias-grid">
+                    <!-- Primera columna (Izquierda) -->
+                    <div class="galerias-col">
+                        <a class="hub-card" href="galeria_obras_proceso.html"
+                            aria-label="Ir a galería de procesos">
+                            <img loading="lazy" src="imagenes/galeria_procesos/mtp/mtp_21.webp" alt="procesos de las obras">
+                            <span class="hub-card-shadow"></span>
+                            <div class="hub-card-content">
+                                <p>Galería</p>
+                                <h2>Procesos</h2>
+                                <span>Ver recorrido</span>
+                            </div>
+                        </a>
+
+                    <a class="hub-card" href="galeria_obras_terminadas.html"
+                            aria-label="Ir a galería de obrasterminadas">
+                            <img loading="lazy" src="imagenes/ventas/mujer_tomandose_el_pelo.webp" alt="obras terminadas">
+                            <span class="hub-card-shadow"></span>
+                            <div class="hub-card-content">
+                                <p>Galería</p>
+                                <h2>Obras terminadas</h2>
+                                <span>Explorar piezas</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Segunda columna (Derecha) -->
+                    <div class="galerias-col">
+                    <a class="hub-card" href="tienda.html" aria-label="Ir a ventas">
+                            <img loading="lazy" src="imagenes/ventas/a_extasis_terminado_1.webp" alt="Tienda y ventas">
+                            <span class="hub-card-shadow"></span>
+                            <div class="hub-card-content">
+                                <p>Tienda</p>
+                                <h2>Ventas</h2>
+                                <span>Obras disponibles</span>
+                            </div>
+                        </a>
+
+                    <a class="hub-card" href="galeria_carrusel_mundo.html" aria-label="Ir al Mundo 3D">
+                            <img loading="lazy" src="imagenes/generales/fondo_3.webp" alt="Mundo 3D">
+                            <span class="hub-card-shadow"></span>
+                            <div class="hub-card-content">
+                                <p>Interactiva</p>
+                                <h2>Mundo 3D</h2>
+                                <span>Explorar 360°</span>
+                            </div>
+                        </a>
+
+                         <a class="hub-card" href="galeria_calesita.html" aria-label="Ir al Carrusel 3D">
+                            <img loading="lazy" src="imagenes/galeria_procesos/mtp/mtp_2.webp" alt="Mujer tomandose el pelo">
+                            <span class="hub-card-shadow"></span>
+                            <div class="hub-card-content">
+                                <p>Interactiva</p>
+                                <h2>Carrusel 3D</h2>
+                                <span>Explorar 360°</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="literary-section">
+            <div class="literary-intro">
+                <h3>Un Paseo por las Palabras
+                </h3>
+                <p>
+                    Además de modelar el barro, también intento plasmar en palabras lo que ronda por mi cabeza.
+                    Haciendo clic en los botones de abajo podrás explorar mis obras literarias: pensamientos,
+                    ensayos y reflexiones que he ido recopilando a lo largo de mi vida.
+                    Te invito a servirte un café, hacer una pausa y recorrerlos libremente.
+                </p>
+            </div>
+
+            <div class="tienda-info-actions literary-actions">
+                <a href="letras_ensayos.html" class="tienda-action-btn">Ensayos</a>
+                <a href="letras_personal.html" class="tienda-action-btn">Yo soy</a>
+                <a href="letras_tecno_anima.html" class="tienda-action-btn">Tecno_anima</a>
+            </div>
+        </section>
+    </main>
+</Layout>

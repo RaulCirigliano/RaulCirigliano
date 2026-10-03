@@ -1,0 +1,11 @@
+# Forzar a Wrangler a ignorar la carpeta .git y otros archivos pesados
+.git/
+node_modules/
+imagenes/videos/
+*.mp4
+*.mov
+*.avi
+commit_ayuda.bat
+optimize_images.py
+wrangler.toml
+wrangler.jsonc

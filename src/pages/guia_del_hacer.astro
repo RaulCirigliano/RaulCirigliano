@@ -1,0 +1,128 @@
+---
+import Layout from '../components/Layout.astro';
+const extraCss = ['guia_hacer.css', 'tipografia.css'];
+---
+
+<Layout 
+  titulo="Guía del Hacer | Raul Cirigliano"
+  descripcion="Recetarios, procesos, videos y apuntes técnicos para compartir el oficio y la experiencia cerámica."
+  palabrasClave="escultor, ceramista, artista, Arte Barro, técnica cerámica, procesos"
+  imagenOG="https://raulcirigliano.com/imagenes/mujer_t_p.webp"
+  extraCss={extraCss}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Person",
+      "name": "Raúl Cirigliano",
+      "url": "https://raulcirigliano.com"
+    }
+    </script>
+  </Fragment>
+
+<main class="gallery-hub">
+        <section class="hub-hero">
+            <div class="container hub-hero-inner">
+                <div class="hub-copy">
+                    <p class="hub-kicker">Guías del Taller</p>
+                    <h1 style="font-size: clamp(1.8rem, 4vw, 3.5rem); line-height: 1.1;">Guías de procesos y métodos para realizar obras en arte barro</h1>
+                    <p class="hub-intro" style="margin-bottom: 15px;">
+                        Recetarios, procesos, videos y apuntes técnicos para compartir el oficio y la experiencia cerámica.
+                    </p>
+                    <a href="#seccion-videos" class="btn"><i class="fas fa-play-circle" style="margin-right: 8px;"></i> Ver Videos</a>
+                </div>
+
+                <div class="hub-grid galerias-grid">
+                    <!-- Primera columna (Izquierda) -->
+                    <div class="galerias-col">
+                    <a class="hub-card" href="guia_hacer_esmaltados.html"
+                            aria-label="Ir a guía de esmaltados">
+                            <img loading="lazy" src="imagenes/guia_hacer/oxidos_pigmentos.webp" alt="Guía de Esmaltados">
+                            <span class="hub-card-shadow"></span>
+                            <div class="hub-card-content">
+                                <p>Colores de las piezas</p>
+                                <h2>Esmaltados</h2>
+                                <span>Ver recetas</span>
+                            </div>
+                        </a>
+
+                    <a class="hub-card" href="guia_hacer_horno_quema_tecnico.html"
+                            aria-label="img_horno a leña/guía de construcción de horno a leña">
+                            <img loading="lazy" src="imagenes/img_horno_leña/Guía__Construcción_de_Horno_Cerámico.webp" alt="Guía de construcción de horno a leña">
+                            <span class="hub-card-shadow"></span>
+                            <div class="hub-card-content">
+                                <p>Guía</p>
+                                <h2 style="line-height: 1.3;"><span style="font-size: 1.6rem;">Construcción de Horno</span><br><span style="font-size: 1.15rem;">a Leña y/o a Gas, Placas y Pilares Refractarios y Barras Pirométricas</span></h2>
+                                <span>Técnicas</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Segunda columna (Derecha) -->
+                    <div class="galerias-col">
+                        <a class="hub-card" href="guia_hacer_torno.html"
+                            aria-label="Ir a guía de modelado y torno">
+                            <img loading="lazy" src="imagenes/guia_hacer/el_espanol_3.webp" alt="Guía de modelado y torno">
+                            <span class="hub-card-shadow"></span>
+                            <div class="hub-card-content">
+                                <p>Técnica</p>
+                                <h2>Modelado y Torno</h2>
+                                <span>Técnicas</span>
+                            </div>
+                        </a>
+
+                    <a class="hub-card" href="guia_hacer_insumos.html" aria-label="Ir a guía de insumos">
+                            <img loading="lazy" src="imagenes/imagenes_insumos_ceramica/pasta_lisa.webp" alt="Pasta lisa">
+                            <span class="hub-card-shadow"></span>
+                            <div class="hub-card-content">
+                                <p>Insumos</p>
+                                <h2>Arcillas y Insumos</h2>
+                                <span>Descripción y uso</span>
+                            </div>
+                        </a>
+
+                    <a class="hub-card" href="guia_hacer_herramientas_ceramica.html" aria-label="Ir a guía de herramientas">
+                            <img loading="lazy" src="imagenes/guia_hacer/herramientas.webp" alt="Herramientas del taller">
+                            <span class="hub-card-shadow"></span>
+                            <div class="hub-card-content">
+                                <p>Taller</p>
+                                <h2>Herramientas</h2>
+                                <span>Fabricación y uso</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Módulo de Video y Carrusel -->
+        <section id="seccion-videos" class="video-component-container">
+            <div class="main-video-wrapper">
+                <div id="main-video-player" class="lite-youtube" data-video-id="oKaMPh4OKBc">
+                    <img loading="lazy" src="https://img.youtube.com/vi/oKaMPh4OKBc/maxresdefault.jpg" alt="Portada del video de cerámica" id="main-video-thumb">
+                    <button class="play-button" aria-label="Reproducir video"></button>
+                </div>
+                <h3 id="main-video-title">Finales del busto "Éxtasis"</h3>
+            </div>
+            <div class="video-carousel">
+                <div class="carousel-item active" data-id="oKaMPh4OKBc" data-title="Finales del busto 'Éxtasis'">
+                    <img src="https://img.youtube.com/vi/oKaMPh4OKBc/mqdefault.jpg" alt="Miniatura Éxtasis" loading="lazy" decoding="async">
+                    <p>Finales del busto</p>
+                </div>
+                <div class="carousel-item" data-id="QwQvQwQvQwQ" data-title="Protocolo de Horneado de 15 Horas - Control Crítico">
+                    <img src="https://img.youtube.com/vi/QwQvQwQvQwQ/mqdefault.jpg" alt="Miniatura horneado" loading="lazy" decoding="async">
+                    <p>Horneado 15h</p>
+                </div>
+                <div class="carousel-item" data-id="AbCdEfGhIjk" data-title="Modelado de Busto en Arcilla Tinca con Chamote">
+                    <img src="https://img.youtube.com/vi/AbCdEfGhIjk/mqdefault.jpg" alt="Miniatura modelado" loading="lazy" decoding="async">
+                    <p>Modelado busto</p>
+                </div>
+                <div class="carousel-item" data-id="ZyXwVuTsRqP" data-title="Construcción de Horno a Gas con Quemador Venturi">
+                    <img src="https://img.youtube.com/vi/ZyXwVuTsRqP/mqdefault.jpg" alt="Miniatura horno" loading="lazy" decoding="async">
+                    <p>Horno a gas</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>

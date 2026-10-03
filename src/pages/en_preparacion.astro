@@ -1,0 +1,30 @@
+---
+import Layout from '../components/Layout.astro';
+const extraCss = ['tipografia.css'];
+---
+
+<Layout 
+  titulo="En Preparación | Raul Cirigliano"
+  descripcion="Sección en preparación de Raul Cirigliano."
+  imagenOG="https://raulcirigliano.com/imagenes/rc.ico"
+  hideHeaderFooter={true}
+  extraCss={extraCss}
+>
+<main class="container page-content-padded">
+        <div class="section-title">
+            <h1>En preparacion</h1>
+        </div>
+        
+        <div class="en_preparacion"> 
+            <i class="fas fa-camera-retro"></i> 
+            <span>Próximamente...</span>
+        </div>
+
+        <div class="empty-state-message">
+            <p>Esta sección está siendo curada. Muy pronto subiré la info e imágenes pertinentes.</p>
+            <button class="btn" onclick="window.history.back()">Volver atras</button>
+        </div>
+    </main>
+
+    <!-- El footer se inyectará automáticamente desde script.js -->
+</Layout>

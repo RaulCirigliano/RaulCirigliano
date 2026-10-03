@@ -1,0 +1,209 @@
+/* Reset encapsulado en el contenedor para no afectar otras partes de la página web */
+#c_m_scene * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* 3D Scene - Combina los estilos de body y #scene originales */
+#c_m_scene {
+    background-color: #050510;
+    /* Use the generated background image */
+    background-image: url("imagenes/generales/fondo_3.webp");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+    color: white;
+    box-sizing: border-box;
+
+    width: 100vw;
+    perspective: 1500px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 80px;
+    justify-content: center;
+    align-items: center;
+    cursor: grab;
+    position: relative;
+}
+
+#c_m_scene:active {
+    cursor: grabbing;
+}
+
+#c_m_sphere {
+    position: relative;
+    width: 0;
+    height: 0;
+    transform-style: preserve-3d;
+}
+
+.c_m_image-item {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    margin-left: -100px;
+    margin-top: -100px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    border: 2px solid rgba(255, 215, 0, 0.4); /* Gold border for baroque feel */
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.2), inset 0 0 10px rgba(0,0,0,0.5);
+    cursor: inherit;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    backface-visibility: visible;
+}
+
+.c_m_image-item:hover {
+    border-color: rgba(255, 215, 0, 1);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.8), inset 0 0 10px rgba(0,0,0,0.5);
+    filter: brightness(1.2);
+}
+
+/* Lightbox Overlay */
+#c_m_lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(10, 10, 20, 0.85);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.4s ease, visibility 0.4s;
+    visibility: visible;
+}
+
+#c_m_lightbox.c_m_hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+#c_m_lightbox-img {
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 215, 0, 0.3);
+    border: 3px solid rgba(255, 215, 0, 0.6);
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+/* Glassmorphism Buttons */
+.c_m_glass-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.c_m_glass-btn:hover {
+    background: rgba(255, 215, 0, 0.3);
+    border-color: rgba(255, 215, 0, 0.8);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+#c_m_close-btn {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1001;
+}
+
+#c_m_close-btn:hover {
+    transform: translateX(-50%) translateY(-2px);
+}
+
+.c_m_nav-buttons {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    z-index: 1001;
+}
+
+.c_m_nav-btn {
+    padding: 12px 30px;
+}
+
+/* --- Responsive para Vista Celular --- */
+@media (max-width: 768px) {
+    .c_m_image-item {
+        width: 120px;
+        height: 120px;
+        margin-left: -60px;
+        margin-top: -60px;
+    }
+    
+    #c_m_scene {
+        perspective: 800px;
+    }
+
+    .c_m_glass-btn {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .c_m_nav-buttons {
+        bottom: 20px;
+        gap: 10px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    #c_m_lightbox-img {
+        max-width: 95%;
+        max-height: 70%;
+    }
+    
+    #c_m_close-btn {
+        top: 20px;
+        padding: 8px 16px;
+    }
+}
+
+/* Controlador de rotación del Slider (extraído de carrusel_mundo.html) */
+.c_m_slider_container {
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+}
+
+.c_m_back_btn {
+    margin-bottom: 20px;
+}
+
+.c_m_slider_label {
+    margin-bottom: 4px;
+    font-size: 1.1em;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+}
+
+.c_m_slider_input {
+    width: 90%;
+}

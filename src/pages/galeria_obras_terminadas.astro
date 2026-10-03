@@ -1,0 +1,131 @@
+---
+import Layout from '../components/Layout.astro';
+const extraCss = ['tipografia.css'];
+---
+
+<Layout 
+  titulo="Galería Obras Terminadas | Raul Cirigliano"
+  descripcion="Galería de obras terminadas de Raul Cirigliano. Esculturas y cerámica artística en su etapa final."
+  palabrasClave="escultor, ceramista, artista, Arte Barro, obras terminadas, esculturas"
+  imagenOG="https://raulcirigliano.com/imagenes/ventas/a_extasis_terminado_1.webp"
+  hideHeaderFooter={true}
+  extraCss={extraCss}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Person",
+      "name": "Raúl Cirigliano",
+      "jobTitle": "Escultor y Ceramista",
+      "description": "Artista dedicado a la escultura en cerámica. Galería de obras de arte finalizadas.",
+      "url": "https://raulcirigliano.com",
+      "image": "https://raulcirigliano.com/imagenes/ventas/a_extasis_terminado_1.webp"
+    }
+    </script>
+  </Fragment>
+
+<main>
+        <section class="gallery" id="galeria">
+            <div class="container">
+                <div class="section-title">
+                    <h1>Galería de Obras Terminadas</h1>
+                </div>
+                <div class="gallery-item spaced-item" data-category="escultura">
+                    <img src="imagenes/ventas/a_extasis_terminado_1.webp" alt="Extasis" loading="lazy" decoding="async">
+                    <div class="item-info">
+                        <h3>Extasis</h3>
+                        <p>Obra terminada</p>
+                    </div>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item" data-category="escultura">
+                        <img src="imagenes/ventas/mascara_mujer_cobalto.webp" alt="Mascara de mujer" loading="lazy" decoding="async">
+                        <div class="item-info">
+                            <h3>Mascara mujer cobalto</h3>
+                            <p>Obra terminada</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-category="escultura">
+                        <img src="imagenes/ventas/a_mirando_cielo.webp" alt="Hombre mirando el cielo" loading="lazy" decoding="async">
+                        <div class="item-info">
+                            <h3>Hombre mirando al cielo</h3>
+                            <p>Obra terminada</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-category="escultura">
+                        <img src="imagenes/ventas/a_mujer_trenzas_verde.webp" alt="Mujer con trenzas" loading="lazy" decoding="async">
+                        <div class="item-info">
+                            <h3>Mujer con trenzas</h3>
+                            <p>Obra terminada</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-category="escultura">
+                        <img src="imagenes/ventas/a_el_grito_bronce.webp" alt="El Grito E" loading="lazy" decoding="async">
+                        <div class="item-info">
+                            <h3>El Grito</h3>
+                            <p>Obra terminada</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-category="escultura">
+                        <img src="imagenes/ventas/mujer_tomandose_el_pelo.webp" alt="Mujer comandose el pelo" loading="lazy" decoding="async">
+                        <div class="item-info">
+                            <h3>Mujer tomandose el pelo</h3>
+                            <p>Obra terminada</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-category="escultura">
+                        <img src="imagenes/ventas/Mujer_brazo_cielo.webp" alt="Mujer brazo extendido" loading="lazy" decoding="async">
+                        <div class="item-info">
+                            <h3>Mujer brazo extendido</h3>
+                            <p>Obra terminada</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="video-component-container">
+            <div class="main-video-wrapper">
+                <div id="main-video-player" class="lite-youtube" data-video-id="A5yfPYKtZ3A">
+                    <img loading="lazy" src="https://img.youtube.com/vi/A5yfPYKtZ3A/maxresdefault.jpg" alt="Portada del video de cerámica" id="main-video-thumb">
+                    <button class="play-button" aria-label="Reproducir video"></button>
+                </div>
+                <h3 id="main-video-title">Mujer con trenzas</h3>
+            </div>
+            <div class="video-carousel">
+                <div class="carousel-item active" data-id="A5yfPYKtZ3A" data-title="Mujer con trenzas">
+                    <img src="https://img.youtube.com/vi/A5yfPYKtZ3A/mqdefault.jpg" alt="Miniatura Mujer con trenzas" loading="lazy" decoding="async">
+                    <p>Mujer con trenzas</p>
+                </div>
+                <div class="carousel-item" data-id="3O7KQEDa2ec" data-title="Mujer tomándose el pelo">
+                    <img src="https://img.youtube.com/vi/3O7KQEDa2ec/mqdefault.jpg" alt="Miniatura Mujer tomándose el pelo" loading="lazy" decoding="async">
+                    <p>Mujer tomándose el pelo</p>
+                </div>
+                <div class="carousel-item" data-id="tfNCwNjJ5xs" data-title="Brazo">
+                    <img src="https://img.youtube.com/vi/tfNCwNjJ5xs/mqdefault.jpg" alt="Miniatura Brazo" loading="lazy" decoding="async">
+                    <p>Brazo</p>
+                </div>
+                <div class="carousel-item" data-id="uZVOdYXZnMo" data-title="Serenidad cadena">
+                    <img src="https://img.youtube.com/vi/uZVOdYXZnMo/mqdefault.jpg" alt="Miniatura Serenidad cadena" loading="lazy" decoding="async">
+                    <p>Serenidad cadena</p>
+                </div>
+                <div class="carousel-item" data-id="3kQU5zA9NqY" data-title="El grito">
+                    <img src="https://img.youtube.com/vi/3kQU5zA9NqY/mqdefault.jpg" alt="Miniatura El grito" loading="lazy" decoding="async">
+                    <p>El grito</p>
+                </div>
+                <div class="carousel-item" data-id="ePSZp2EugjY" data-title="Serenidad">
+                    <img src="https://img.youtube.com/vi/ePSZp2EugjY/mqdefault.jpg" alt="Miniatura Serenidad" loading="lazy" decoding="async">
+                    <p>Serenidad</p>
+                </div>
+                <div class="carousel-item" data-id="n7YUSogPQhU" data-title="Mujer tomándose el pelo (2)">
+                    <img src="https://img.youtube.com/vi/n7YUSogPQhU/mqdefault.jpg" alt="Miniatura Mujer tomándose el pelo 2" loading="lazy" decoding="async">
+                    <p>Mujer tomándose el pelo 2</p>
+                </div>
+                <div class="carousel-item" data-id="ndb1LMGBfUw" data-title="Mujer tomándose pelo Grok">
+                    <img src="https://img.youtube.com/vi/ndb1LMGBfUw/mqdefault.jpg" alt="Miniatura Mujer tomándose pelo Grok" loading="lazy" decoding="async">
+                    <p>Mujer tomándose pelo Grok</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>

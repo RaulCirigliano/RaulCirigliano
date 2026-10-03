@@ -1,0 +1,59 @@
+---
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+
+const { 
+  titulo = "Raul Cirigliano | Escultura y Cerámica Artística", 
+  descripcion = "Arte en barro, procesos de cerámicas y galería de esculturas originales.",
+  palabrasClave = "escultor, ceramista, artista, Arte Barro, escultura, cerámica artística",
+  imagenOG = "https://raulcirigliano.com/imagenes/galeria_procesos/mtp/mtp_50.webp",
+  url = "https://raulcirigliano.com",
+  hideHeaderFooter = false,
+  extraCss = []
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>{titulo}</title>
+    <link rel="icon" type="image/x-icon" href="/imagenes/rc.ico">
+    <link rel="shortcut icon" href="/imagenes/rc.ico">
+    <meta name="description" content={descripcion}>
+    <meta name="keywords" content={palabrasClave}>
+    
+    <meta property="og:title" content={titulo}>
+    <meta property="og:description" content={descripcion}>
+    <meta property="og:image" content={imagenOG}>
+    <meta property="og:url" content={url}>
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Raúl Cirigliano Arte">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content={titulo}>
+    <meta name="twitter:description" content={descripcion}>
+    <meta name="twitter:image" content={imagenOG}>
+    <link rel="canonical" href={url}>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/estilos.min.css">
+    
+    {extraCss.map(css => (
+        <link rel="stylesheet" href={css} />
+    ))}
+    
+    <slot name="head" />
+</head>
+<body class={hideHeaderFooter ? "site-entry-page workshop-typography" : ""}>
+    {!hideHeaderFooter && <Header />}
+    
+    <slot />
+    
+    {!hideHeaderFooter && <Footer />}
+    
+    <script src="/script.js" is:inline></script>
+</body>
+</html>

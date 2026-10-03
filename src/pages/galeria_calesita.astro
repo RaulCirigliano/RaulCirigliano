@@ -1,0 +1,46 @@
+---
+import Layout from '../components/Layout.astro';
+const extraCss = ['tipografia.css'];
+---
+
+<Layout 
+  titulo="Presentación de Imágenes | Raul Cirigliano"
+  descripcion="Galería rotativa 3D de las obras de escultura y cerámica artística de Raul Cirigliano."
+  imagenOG="https://raulcirigliano.com/imagenes/ventas/a_extasis_terminado_1.webp"
+  hideHeaderFooter={true}
+  extraCss={extraCss}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "WebPage",
+      "name": "Presentación de Imágenes",
+      "url": "https://raulcirigliano.com/galeria_calesita.html"
+    }
+    </script>
+  </Fragment>
+
+<!-- Contenido principal -->
+    <main class="container" style="padding-top: 130px; min-height: 60vh; overflow: hidden;">
+        <div class="section-title">
+            <h1>Galería Rotativa</h1>
+            <p>Explora mis obras desde todos los ángulos. Desliza el ratón sobre una imagen para pausar y doble click para aumentar.</p>
+        </div>
+
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="slide" style="--i:1;"><img loading="lazy" src="imagenes/galeria_procesos/mtp/mtp_15.webp" alt="Obra 1"></div>
+                <div class="slide" style="--i:2;"><img loading="lazy" src="imagenes/galeria_procesos/mtp/mtp_4.webp" alt="Obra 2"></div>
+                <div class="slide" style="--i:3;"><img loading="lazy" src="imagenes/galeria_procesos/mtp/mtp_23.webp" alt="Obra 3"></div>
+                <div class="slide" style="--i:4;"><img loading="lazy" src="imagenes/galeria_procesos/mtp/mtp_11.webp" alt="Obra 4"></div>
+                <div class="slide" style="--i:5;"><img loading="lazy" src="imagenes/galeria_procesos/mtp/mtp_13.webp" alt="Obra 5"></div>
+                <div class="slide" style="--i:6;"><img loading="lazy" src="imagenes/galeria_procesos/mtp/mtp_6.webp" alt="Obra 6"></div>
+                <div class="slide" style="--i:7;"><img loading="lazy" src="imagenes/galeria_procesos/mtp/mtp_26b.webp" alt="Obra 7"></div>
+                <div class="slide" style="--i:8;"><img loading="lazy" src="imagenes/galeria_procesos/mtp/mtp_19.webp" alt="Obra 8"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- El footer se inyectará automáticamente desde script.js -->
+</Layout>

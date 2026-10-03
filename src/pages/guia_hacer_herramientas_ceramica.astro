@@ -1,0 +1,56 @@
+---
+import Layout from '../components/Layout.astro';
+const extraCss = ['tipografia.css', 'guia_hacer.css'];
+---
+
+<Layout 
+  titulo="Herramientas del taller | Raul Cirigliano"
+  descripcion="Guía práctica de las herramientas más usadas en el taller de cerámica y escultura."
+  imagenOG="https://raulcirigliano.com/imagenes/guia_hacer/herramientas.webp"
+  hideHeaderFooter={true}
+  extraCss={extraCss}
+>
+<div class="top-links">
+        <a class="top-link" href="javascript:history.back()"><i class="fas fa-arrow-left"></i> Volver</a>
+        <a class="top-link" href="guia_del_hacer.html"><i class="fas fa-home"></i> Guía del hacer</a>
+    </div>
+
+    <div class="guia-header">
+        <h1>Herramientas del Taller</h1>
+        <p>Una referencia rápida para reconocer el material y el uso de las herramientas más frecuentes.</p>
+    </div>
+
+    <div class="tools-wrapper">
+        <aside class="sidebar">
+            <h2 style="margin-top:0; color:var(--color-dark); font-size:1.5rem; border-bottom: 2px solid var(--color-secondary); padding-bottom: 10px; margin-bottom: 20px;">Filtros</h2>
+            <input type="text" id="searchInput" class="search-box" placeholder="Buscar herramienta...">
+            <button class="category-btn active" data-cat="todas">Todas</button>
+            <button class="category-btn" data-cat="modelado">Modelado</button>
+            <button class="category-btn" data-cat="preparacion">Preparación</button>
+            <button class="category-btn" data-cat="decoracion">Decoración</button>
+            <button class="category-btn" data-cat="horneado">Horneado</button>
+        </aside>
+
+        <main class="main-content">
+            <div id="toolsGrid" class="grid">
+                <!-- Las tarjetas de herramientas se inyectarán aquí dinámicamente por JavaScript -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal para mostrar los detalles de la herramienta al hacer clic -->
+    <div id="toolModal" class="modal">
+        <div class="modal-content">
+            <button id="closeModal" class="close-btn">&times;</button>
+            <img loading="lazy" id="modalImg" src="" alt="Imagen de herramienta">
+            <h2 id="modalTitle">Nombre de la Herramienta</h2>
+            <h4>Forma y Material</h4>
+            <p id="modalShape">Descripción física de la herramienta.</p>
+            <h4>Uso</h4>
+            <p id="modalUse">Descripción de cómo y cuándo usarla.</p>
+        </div>
+    </div>
+
+    <script is:inline src="/guia_hacer.js"></script>
+    
+</Layout>

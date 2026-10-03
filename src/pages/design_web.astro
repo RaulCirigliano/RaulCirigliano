@@ -1,0 +1,124 @@
+---
+import Layout from '../components/Layout.astro';
+const extraCss = ['design.css', 'tipografia.css'];
+---
+
+<Layout 
+  titulo="Propuesta Desarrollo Web | Raul Cirigliano"
+  descripcion="Propuesta de desarrollo web profesional por Raul Cirigliano. Sitios a medida, ultraligeros y seguros."
+  palabrasClave="escultor, ceramista, artista, Arte Barro, desarrollo web, diseño web"
+  imagenOG="https://raulcirigliano.com/imagenes/fondo_pagina_inicio.webp"
+  extraCss={extraCss}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Person",
+      "name": "Raúl Cirigliano",
+      "jobTitle": "Desarrollador Web, Escultor y Ceramista",
+      "description": "Profesional ofreciendo servicios de desarrollo web a medida, seguro y de alto rendimiento.",
+      "url": "https://raulcirigliano.com"
+    }
+    </script>
+  </Fragment>
+
+<!-- Contenido principal -->
+    <main class="container design-container page-content-padded">
+        <div class="proposal-wrapper">
+            <div class="email-subject">
+                <strong>Accede a tu propia página web. La herramienta más eficiente para potenciar tu trabajo.</strong> 
+            </div>
+            
+            <h1>Propuesta de Desarrollo Web</h1>
+            
+            <p class="greeting">Hola,</p>
+            
+            <p>Quería compartirte mi servicio de desarrollo web, pensado para profesionales y emprendedores que necesitan dar el salto digital con su propio dominio <strong>.com, .com.ar, etc.</strong>, de forma accesible y sin complicaciones.</p>
+            
+            <p>Muchas veces se cree que tener una web oficial es un proceso lento y costoso, pero mi enfoque técnico está diseñado para hacerlo eficiente, directo y a tu medida.</p>
+            
+            <h2>¿Qué te ofrezco y por qué mi método hace la diferencia?</h2>
+            
+            <ul class="features-list">
+                <li>
+                    <i class="fas fa-code"></i>
+                    <div>
+                        <strong>Código a medida y ultraligero:</strong> No dependo de sistemas lentos. Diseño y escribo tu página para que sea funcional, limpia y cargue a la máxima velocidad posible (algo que Google y tus clientes valoran muchísimo).
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-shield-alt"></i>
+                    <div>
+                        <strong>Seguridad y resguardo:</strong> Trabajo con los mismos estándares de control de versiones que usa la industria tecnológica. Tu página tiene un respaldo total e inquebrantable; nunca vas a perder tu información.
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-globe"></i>
+                    <div>
+                        <strong>Infraestructura global:</strong> Configuro tu dominio y alojo el sitio en plataformas de alto rendimiento. Tu página va a estar protegida contra ataques, siempre visible y con el certificado de conexión segura activado desde el primer minuto.
+                    </div>
+                </li>
+            </ul>
+            
+            <div class="highlight-box">
+                <p>Tener tu "casa propia" en internet hoy es completamente accesible y marca la diferencia en cómo te perciben.</p>
+            </div>
+            
+            <p>Si te interesa que armemos algo para <em>tu proyecto/negocio</em>, avisame y charlamos sin compromiso sobre cómo podemos hacerlo realidad.</p>
+            
+            <div class="signature">
+                <p>Un saludo,</p>
+                <p class="signature-name">Raúl Cirigliano</p>
+            </div>
+        </div>
+        <div class="contact-container design-contact-spacing">
+                    <div class="contact-info contact-card">
+                        <h3>Contacto directo</h3>
+                        <p>Envía un correo, visita mis redes o consulta mi ubicación.</p>
+                        <br>
+                        <a class="btn btn-secondary" href="mailto:raulcirigliano@gmail.com?subject=Consulta%20desde%20la%20web&body=Hola%20Raul,%0D%0A%0D%0A">
+                            <i class="fas fa-envelope"></i> Enviar correo
+                        </a>
+                        <a class="btn btn-whatsapp-style" href="https://wa.me/5491126608813?text=Hola%20Raúl,%20vengo%20desde%20tu%20sitio%20web" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+
+                        <div class="contact-details">
+                            <p><i class="fas fa-envelope"></i> <a href="mailto:raulcirigliano@gmail.com">raulcirigliano@gmail.com</a></p>
+                            <p><i class="fas fa-phone"></i> <a href="tel:+541126608813">+54 11 2660 8813</a></p>
+                            <p><i class="fas fa-map-marker-alt"></i> French 480, Villa Martelli, Vicente Lopez, Argentina, CP 1603</p>
+                        </div>
+
+                        <div class="social-links">
+                            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://wa.me/5491126608813" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                <div class="map-container">
+                    <h3>Ubicación en Google Maps</h3>
+                    <div class="map-frame">
+                        <iframe
+                            src="https://www.google.com/maps?q=French+480+Villa+Martelli+Vicente+Lopez+Argentina+1603&output=embed"
+                            width="100%"
+                            height="420"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+    </main>
+
+    <!-- El footer se inyectará automáticamente desde script.js -->
+</Layout>

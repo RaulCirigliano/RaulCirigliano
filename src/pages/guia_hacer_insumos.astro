@@ -1,0 +1,43 @@
+---
+import Layout from '../components/Layout.astro';
+const extraCss = ['tipografia.css', 'guia_hacer.css'];
+---
+
+<Layout 
+  titulo="Manual de Estudio: Materiales Cerámicos"
+  extraCss={extraCss}
+>
+<div class="top-links">
+                <a class="top-link" href="javascript:history.back()"><i class="fas fa-arrow-left"></i> Volver</a>
+                <a class="top-link" href="guia_del_hacer.html"><i class="fas fa-home"></i> Guía del hacer</a>
+            </div>
+    
+
+    <div class="container">
+
+        <!-- Referencias de Iconos -->
+        <div class="referencias-box">
+            <span onclick="filterByCategory('pasta')">🏺 Arcillas y Pastas</span>
+            <span onclick="filterByCategory('esmalte')">🎨 Esmaltes y Engobes</span>
+            <span onclick="filterByCategory('oxido')">🖌️ Pigmentos y Óxidos</span>
+            <span onclick="filterByCategory('herramientas')">🛠️ Herramientas y Equipos</span>
+            <span onclick="filterByCategory('refractario')">🧱 Refractarios</span>
+            <span onclick="filterByCategory('fundente')">🔥 Fundentes</span>
+            <span onclick="filterByCategory('')">📦 Ver Todos</span>
+        </div>
+
+        <div class="controls">
+            <input type="text" id="searchInput" class="search-bar" placeholder="🔍 Buscar material, categoría, descripción o uso..." onkeyup="filterCards()">
+        </div>
+
+        <div class="grid" id="materialsGrid">
+            <!-- Las tarjetas se insertarán dinámicamente aquí -->
+        </div>
+        <div id="noResults" class="no-results">
+            No se encontraron materiales que coincidan con tu búsqueda.
+        </div>
+    </div>
+
+    
+    <script is:inline src="/guia_hacer.js"></script>
+</Layout>

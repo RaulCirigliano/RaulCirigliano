@@ -1,0 +1,11 @@
+# robots.txt para https://raulcirigliano.com
+
+User-agent: *
+Allow: /
+
+Disallow: /plantilla_base.html
+Disallow: /en_preparacion.html
+Disallow: /ventas.html
+Disallow: /juegos.html
+
+Sitemap: https://raulcirigliano.com/sitemap.xml
